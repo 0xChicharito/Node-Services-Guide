@@ -14,22 +14,32 @@ coverY: 0
 | Disk      | 200 GB      |
 | Bandwidth | 10 MBit/s   |
 
-## Download Story-Geth binary <a href="#download-story-geth-binary" id="download-story-geth-binary"></a>
+## Download Story-Geth binary v0.9.3 <a href="#download-story-geth-binary" id="download-story-geth-binary"></a>
 
 ```bash
-wget https://story-geth-binaries.s3.us-west-1.amazonaws.com/geth-public/geth-linux-amd64-0.9.2-ea9f0d2.tar.gz
-tar -xzvf geth-linux-amd64-0.9.2-ea9f0d2.tar.gz
-sudo cp geth-linux-amd64-0.9.2-ea9f0d2/geth $HOME/go/bin/story-geth
+wget https://story-geth-binaries.s3.us-west-1.amazonaws.com/geth-public/geth-linux-amd64-0.9.3-b224fdf.tar.gz
+tar -xzvf geth-linux-amd64-0.9.3-b224fdf.tar.gz
+[ ! -d "$HOME/go/bin" ] && mkdir -p $HOME/go/bin
+if ! grep -q "$HOME/go/bin" $HOME/.bash_profile; then
+  echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
+fi
+sudo cp geth-linux-amd64-0.9.3-b224fdf/geth $HOME/go/bin/story-geth
 source $HOME/.bash_profile
 story-geth version
 ```
 
-### Download Story binary <a href="#download-story-binary" id="download-story-binary"></a>
+### Download Story binary v0.10.1 <a href="#download-story-binary" id="download-story-binary"></a>
+
+Must use Snapshot above block height 626,575
 
 ```bash
-wget https://story-geth-binaries.s3.us-west-1.amazonaws.com/story-public/story-linux-amd64-0.9.11-2a25df1.tar.gz
-tar -xzvf story-linux-amd64-0.9.11-2a25df1.tar.gz
-sudo cp story-linux-amd64-0.9.11-2a25df1/story $HOME/go/bin/story
+wget https://story-geth-binaries.s3.us-west-1.amazonaws.com/story-public/story-linux-amd64-0.10.1-57567e5.tar.gz
+tar -xzvf story-linux-amd64-0.10.1-57567e5.tar.gz
+[ ! -d "$HOME/go/bin" ] && mkdir -p $HOME/go/bin
+if ! grep -q "$HOME/go/bin" $HOME/.bash_profile; then
+  echo "export PATH=$PATH:/usr/local/go/bin:~/go/bin" >> ~/.bash_profile
+fi
+cp $HOME/story-linux-amd64-0.10.1-57567e5/story $HOME/go/bin
 source $HOME/.bash_profile
 story version
 ```
