@@ -27,7 +27,9 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 ```
 
 ## Snapshot
-*Latest snapshot: Mon, 30 Sep 2024 06:09:47 GMT | 87.96 GB*
+
+_Latest snapshot: Mon, 30 Sep 2024 06:09:47 GMT | 87.96 GB_
+
 ```bash
 sudo systemctl stop story
 sudo systemctl stop story-geth
@@ -37,6 +39,6 @@ rm -rf $HOME/.story/geth/iliad/geth/chaindata
 curl https://snapshot.node9x.com/story_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story
 mv $HOME/.story/story/priv_validator_state.json.backup $HOME/.story/story/data/priv_validator_state.json
 sudo systemctl start story-geth
-*Latest snapshot: Mon, 30 Sep 2024 06:09:47 GMT | 87.96 GB*
+sudo systemctl start story
 sudo journalctl -u story -f
 ```
