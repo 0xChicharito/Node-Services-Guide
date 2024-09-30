@@ -37,7 +37,7 @@ sudo systemctl stop story-geth
 
 ## Download Geth-data
 
-_Latest snapshot: Fri, 27 Sep 2024 06:05:20 GMT | 20.86 GB_
+*Latest snapshot: Mon, 30 Sep 2024 06:09:47 GMT | 87.96 GB*
 
 ```bash
 wget -O geth_snapshot.lz4 https://snapshot.node9x.com/geth_snapshot.lz4
