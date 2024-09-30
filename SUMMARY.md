@@ -3,10 +3,10 @@
 ## 🚀 Testnet
 
 * [🧬 Explorer](README.md)
-* [🟢 Zenrock](testnet/page/README.md)
-  * [💾 Service & Snapshot](testnet/page/service.md)
-  * [⚙️ Installation](testnet/page/installation.md)
-  * [⚙️ Sidecar (✔️Oracle)](testnet/page/sidecar-oracle.md)
+* [🟢 Zenrock](testnet/zenrock/README.md)
+  * [💾 Service & Snapshot](testnet/zenrock/service-and-snapshot.md)
+  * [⚙️ Installation](testnet/zenrock/installation.md)
+  * [⚙️ Sidecar (✔️Oracle)](testnet/zenrock/sidecar-oracle.md)
 * [🟢 Story Protocol](testnet/story-protocol/README.md)
   * [💾 Service & Snapshot](testnet/story-protocol/service-and-snapshot.md)
   * [⚙️ Installation](testnet/story-protocol/installation/README.md)
