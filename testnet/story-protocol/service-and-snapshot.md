@@ -37,6 +37,6 @@ rm -rf $HOME/.story/geth/iliad/geth/chaindata
 curl https://snapshot.node9x.com/story_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story
 mv $HOME/.story/story/priv_validator_state.json.backup $HOME/.story/story/data/priv_validator_state.json
 sudo systemctl start story-geth
-sudo systemctl start story
+*Latest snapshot: Mon, 30 Sep 2024 06:09:47 GMT | 87.96 GB*
 sudo journalctl -u story -f
 ```
