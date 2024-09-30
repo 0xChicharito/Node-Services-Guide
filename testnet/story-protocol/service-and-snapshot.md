@@ -28,65 +28,15 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 
 ## Snapshot
 
-## Stop node <a href="#stop-node" id="stop-node"></a>
-
 ```bash
 sudo systemctl stop story
 sudo systemctl stop story-geth
-```
-
-## Download Geth-data
-
-*Latest snapshot: Mon, 30 Sep 2024 06:09:47 GMT | 87.96 GB*
-
-```bash
-wget -O geth_snapshot.lz4 https://snapshot.node9x.com/geth_snapshot.lz4
-```
-
-## Download Story-data
-
-_Latest snapshot: Fri, 27 Sep 2024 06:08:43 GMT | 45.76 GB_
-
-```bash
-wget -O story_snapshot.lz4 https://snapshot.node9x.com/story_snapshot.lz4
-```
-
-## Backup `priv_validator_state.json`
-
-```bash
-mv $HOME/.story/story/data/priv_validator_state.json $HOME/.story/priv_validator_state.json.backup
-```
-
-## Remove old data <a href="#remove-old-data" id="remove-old-data"></a>
-
-```bash
-rm -rf ~/.story/story/data
-rm -rf ~/.story/geth/iliad/geth/chaindata
-```
-
-## Extract Story-data <a href="#extract-story-data" id="extract-story-data"></a>
-
-```bash
-sudo mkdir -p /root/.story/story/data
-lz4 -c -d story_snapshot.lz4 | tar -x -C /root/.story/story
-```
-
-## Extract Geth-data <a href="#extract-geth-data" id="extract-geth-data"></a>
-
-```bash
-sudo mkdir -p /root/.story/geth/iliad/geth/chaindata
-lz4 -c -d geth_snapshot.lz4 | tar -x -C /root/.story/geth/iliad/geth
-```
-
-## Move `priv_validator_state.json` back <a href="#move-priv_validator_state.json-back" id="move-priv_validator_state.json-back"></a>
-
-```bash
-mv $HOME/.story/priv_validator_state.json.backup $HOME/.story/story/data/priv_validator_state.json
-```
-
-## Restart node <a href="#restart-node" id="restart-node"></a>
-
-```bash
+cp $HOME/.story/story/data/priv_validator_state.json $HOME/.story/story/priv_validator_state.json.backup
+rm -rf $HOME/.story/story/data
+rm -rf $HOME/.story/geth/iliad/geth/chaindata
+curl https://snapshot.node9x.com/story_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story
+mv $HOME/.story/story/priv_validator_state.json.backup $HOME/.story/story/data/priv_validator_state.json
+sudo systemctl start story-geth
 sudo systemctl start story
-sudo systemctl start story-get
+sudo journalctl -u story -f
 ```
