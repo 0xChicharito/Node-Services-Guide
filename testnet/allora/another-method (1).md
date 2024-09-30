@@ -6,8 +6,8 @@ Faucet : [https://faucet.testnet-1.testnet.allora.network/](https://faucet.testn
 
 Install as below first. If you are using new VPS
 
-{% content-ref url="workers/create-tool-and-worker-wallet.md" %}
-[create-tool-and-worker-wallet.md](workers/create-tool-and-worker-wallet.md)
+{% content-ref url="workers/create-tool-and-worker-wallet (1).md" %}
+[create-tool-and-worker-wallet (1).md](<workers/create-tool-and-worker-wallet (1).md>)
 {% endcontent-ref %}
 
 **1. Install**
