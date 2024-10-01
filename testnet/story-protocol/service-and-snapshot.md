@@ -28,7 +28,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 
 ## Snapshot
 *Latest snapshot: Tue, 01 Oct 2024 07:26:39 GMT | 92.87 GB*
-_Latest snapshot: Mon, 30 Sep 2024 06:09:47 GMT | 87.96 GB_
+
 
 ```bash
 sudo systemctl stop story
