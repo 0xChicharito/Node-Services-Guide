@@ -30,7 +30,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.z
 ```
 
 ### Snapshot <a href="#snapshot" id="snapshot"></a>
-*Latest snapshot: Wed, 02 Oct 2024 17:49:16 GMT | 0.68 GB*
+*Latest snapshot: Wed, 02 Oct 2024 21:55:36 GMT | 0.69 GB*
 
 
 ```bash
