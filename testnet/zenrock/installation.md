@@ -46,8 +46,8 @@ zenrockd config set client chain-id $ZENROCK_CHAIN_ID
 zenrockd config set client node tcp://localhost:${ZENROCK_PORT}657
 
 # download genesis and addrbook
-wget -O $HOME/.zrchain/config/genesis.json https://server-5.itrocket.net/testnet/zenrock/genesis.json
-wget -O $HOME/.zrchain/config/addrbook.json  https://server-5.itrocket.net/testnet/zenrock/addrbook.json
+wget -O $HOME/.zrchain/config/genesis.json https://snapshot.node9x.com/zrchain/genesis.json
+wget -O $HOME/.zrchain/config/addrbook.json https://snapshot.node9x.com/zrchain/addrbook.json
 
 # set seeds and peers
 SEEDS="50ef4dd630025029dde4c8e709878343ba8a27fa@zenrock-testnet-seed.itrocket.net:56656"
@@ -140,7 +140,7 @@ zenrockd query bank balances $WALLET_ADDRESS
 
 [https://gardia.zenrocklabs.io/workspaces](https://gardia.zenrocklabs.io/workspaces)
 
-## Or use this command&#x20;
+## Or use this command
 
 ```bash
 curl https://faucet.gardia.zenrocklabs.io -XPOST -d'{"address":"zen1steffht....teqf"}'
