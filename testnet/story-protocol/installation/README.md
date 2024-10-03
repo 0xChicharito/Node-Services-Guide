@@ -28,7 +28,7 @@ source $HOME/.bash_profile
 story-geth version
 ```
 
-### Download Story binary v0.10.1 <a href="#download-story-binary" id="download-story-binary"></a>
+## Download Story binary v0.10.1 <a href="#download-story-binary" id="download-story-binary"></a>
 
 Must use Snapshot above block height 626,575
 
@@ -44,13 +44,13 @@ source $HOME/.bash_profile
 story version
 ```
 
-### Init Iliad node <a href="#init-iliad-node" id="init-iliad-node"></a>
+## Init Iliad node <a href="#init-iliad-node" id="init-iliad-node"></a>
 
 ```bash
 story init --network iliad
 ```
 
-### Create story-geth service file <a href="#create-story-geth-service-file" id="create-story-geth-service-file"></a>
+## Create story-geth service file <a href="#create-story-geth-service-file" id="create-story-geth-service-file"></a>
 
 ```bash
 sudo tee /etc/systemd/system/story-geth.service > /dev/null <<EOF
@@ -70,7 +70,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### Create story service file <a href="#create-story-service-file" id="create-story-service-file"></a>
+## Create story service file <a href="#create-story-service-file" id="create-story-service-file"></a>
 
 ```bash
 sudo tee /etc/systemd/system/story.service > /dev/null <<EOF
@@ -90,7 +90,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### Reload and start story-geth <a href="#reload-and-start-story-geth" id="reload-and-start-story-geth"></a>
+## Reload and start story-geth <a href="#reload-and-start-story-geth" id="reload-and-start-story-geth"></a>
 
 ```bash
 sudo systemctl daemon-reload && \
@@ -99,7 +99,7 @@ sudo systemctl enable story-geth && \
 sudo systemctl status story-geth
 ```
 
-### Reload and start story <a href="#reload-and-start-story" id="reload-and-start-story"></a>
+## Reload and start story <a href="#reload-and-start-story" id="reload-and-start-story"></a>
 
 ```bash
 sudo systemctl daemon-reload && \
@@ -108,7 +108,7 @@ sudo systemctl enable story && \
 sudo systemctl status story
 ```
 
-### Check logs <a href="#check-logs" id="check-logs"></a>
+## Check logs <a href="#check-logs" id="check-logs"></a>
 
 ```bash
 sudo journalctl -u story-geth -f -o cat
@@ -120,7 +120,7 @@ Wait a minute for connect peers
 sudo journalctl -u story -f -o cat
 ```
 
-### Check sync status <a href="#check-sync-status" id="check-sync-status"></a>
+## Check sync status <a href="#check-sync-status" id="check-sync-status"></a>
 
 ```bash
 curl localhost:26657/status | jq
@@ -128,7 +128,7 @@ curl localhost:26657/status | jq
 
 _Waiting for your node`catching_up` is `false`you can create validator._
 
-### Create validator <a href="#create-validator" id="create-validator"></a>
+## Create validator <a href="#create-validator" id="create-validator"></a>
 
 Export private key
 
