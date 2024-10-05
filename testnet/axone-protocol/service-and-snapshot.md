@@ -16,7 +16,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.a
 
 ## Snapshot <a href="#snapshot" id="snapshot"></a>
 
-_Latest snapshot: Sat, 05 Oct 2024 15:29:00 GMT | 0.76 GB_
+
 
 ```bash
 sudo systemctl stop axoned cp $HOME/.axoned/data/priv_validator_state.json $HOME/.axoned/priv_validator_state.json.backup 
