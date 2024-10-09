@@ -9,6 +9,7 @@
 * [🟢 Zenrock](testnet/zenrock/README.md)
   * [💾 Service & Snapshot](testnet/zenrock/service-and-snapshot.md)
   * [⚙️ Installation](testnet/zenrock/installation.md)
+  * [🛰️ Command](testnet/zenrock/command.md)
   * [⚙️ Sidecar (✔️Oracle)](testnet/zenrock/sidecar-oracle.md)
 * [🟢 Story Protocol](testnet/story-protocol/README.md)
   * [💾 Service & Snapshot](testnet/story-protocol/service-and-snapshot.md)
