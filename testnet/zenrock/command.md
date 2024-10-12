@@ -155,13 +155,13 @@ zenrockd tx validation redelegate $(zenrockd keys show wallet --bech val -a) <TO
 ## **Unbond tokens from your validator**
 
 ```
-zenrockd tx validation unbond $(zenrockd keys show wallet --bech val -a) 1000000urock --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 0urock -y
+zenrockd tx validation unbond $(zenrockd keys show wallet --bech val -a) 1000000urock --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 30urock -y
 ```
 
 ## **Send tokens to the wallet**
 
 ```
-zenrockd tx bank send wallet <TO_WALLET_ADDRESS> 1000000urock --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 0urock -y
+zenrockd tx bank send wallet <TO_WALLET_ADDRESS> 1000000urock --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 30urock -y
 ```
 
 ## Governance <a href="#governance" id="governance"></a>
@@ -181,19 +181,19 @@ zenrockd query gov proposal 1
 ## **Vote ‘Yes’**
 
 ```
-zenrockd tx gov vote 1 yes --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 0urock -y
+zenrockd tx gov vote 1 yes --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 30urock -y
 ```
 
 ## **Vote ‘No’**
 
 ```
-zenrockd tx gov vote 1 no --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 0urock -y
+zenrockd tx gov vote 1 no --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 30urock -y
 ```
 
 ## **Vote ‘Abstain’**
 
 ```
-zenrockd tx gov vote 1 abstain --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 0urock -y
+zenrockd tx gov vote 1 abstain --from wallet --chain-id gardia-2 --gas-adjustment 1.4 --gas auto --gas-prices 30urock -y
 ```
 
 ## **Vote ‘NoWithVeto’**
