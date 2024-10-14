@@ -2,9 +2,9 @@
 
 ### Public Endpoint <a href="#public-endpoint" id="public-endpoint"></a>
 
-| RPC | [https://zenrock-rpc.node9x.com/](https://zenrock-rpc.node9x.com/) |
-| --- | ------------------------------------------------------------------ |
-|     |                                                                    |
+| RPC | [https://prysm-rpc.node9x.com](https://prysm-rpc.node9x.com) |
+| --- | ------------------------------------------------------------ |
+|     |                                                              |
 
 ### Peer <a href="#peer" id="peer"></a>
 
@@ -19,14 +19,14 @@ curl -s localhost:15657/status | jq -r '.result.node_info | "\(.id)@'"$(curl -4 
 ### Live Peers <a href="#live-peers" id="live-peers"></a>
 
 ```
-PEERS=$(curl -sS https://zenrock-rpc.node9x.com/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | awk -F ':' '{print $1":"$(NF)}' | paste -sd, -)
+PEERS=$(curl -sS https://prysm-rpc.node9x.com/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | awk -F ':' '{print $1":"$(NF)}' | paste -sd, -)
 echo $PEERS
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.zrchain/config/config.toml
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.prysm/config/config.toml
 ```
 
 ### Snapshot <a href="#snapshot" id="snapshot"></a>
 
-*Latest snapshot: Mon, 14 Oct 2024 16:40:19 GMT | 0.34 GB*
+_Latest snapshot: Mon, 14 Oct 2024 16:40:19 GMT | 0.34 GB_
 
 ```bash
 sudo systemctl stop prysmd
