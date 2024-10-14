@@ -6,8 +6,8 @@ Faucet : [https://faucet.testnet-1.testnet.allora.network/](https://faucet.testn
 
 Install as below first. If you are using new VPS
 
-{% content-ref url="workers/create-tool-and-worker-wallet.md" %}
-[create-tool-and-worker-wallet.md](workers/create-tool-and-worker-wallet.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 **1. Install**
@@ -139,8 +139,6 @@ docker compose logs -f
     docker compose up --build inference
     ```
 2.  Send requests to the inference model. For example, request ETH price inferences:
-
-
 
     ```bash
     curl http://127.0.0.1:8000/inference/ETH 
