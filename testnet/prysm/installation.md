@@ -48,8 +48,8 @@ prysmd config chain-id prysm-devnet-1
 prysmd init "Chicharito | Node 9X" --chain-id prysm-devnet-1
 
 # download genesis and addrbook
-wget -O $HOME/.prysm/config/genesis.json https://server-5.itrocket.net/testnet/prysm/genesis.json
-wget -O $HOME/.prysm/config/addrbook.json  https://server-5.itrocket.net/testnet/prysm/addrbook.json
+wget -O $HOME/.prysm/config/genesis.json https://snapshot.node9x.com/prysm/genesis.json
+wget -O $HOME/.prysm/config/addrbook.json https://snapshot.node9x.com/prysm/addrbook.json
 
 # set seeds and peers
 SEEDS="1b5b6a532e24c91d1bc4491a6b989581f5314ea5@prysm-testnet-seed.itrocket.net:25656"
