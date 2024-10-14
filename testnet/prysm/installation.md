@@ -166,8 +166,6 @@ done
 
 ### Create validator <a href="#create-validator" id="create-validator"></a>
 
-MonikerIdentityDetailsAmount, uprysmCommission rateCommission max rateCommission max change rateWebsite
-
 ```bash
 cd $HOME
 # Create validator.json file
