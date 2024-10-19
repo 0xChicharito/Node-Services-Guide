@@ -26,7 +26,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.p
 
 ### Snapshot <a href="#snapshot" id="snapshot"></a>
 
-*Latest snapshot: Sat, 19 Oct 2024 11:21:59 GMT | 1.61 GB*
+*Latest snapshot:* **prysm_2024-10-19_619204_snap.tar.lz4**, height: **619204**, size: **1.7G**
 
 ```bash
 sudo systemctl stop prysmd
