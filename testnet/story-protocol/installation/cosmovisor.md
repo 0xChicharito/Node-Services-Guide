@@ -1,4 +1,4 @@
-# Cosmovisor
+# 🪢 Cosmovisor
 
 #### Install Cosmovisor <a href="#install-cosmovisor" id="install-cosmovisor"></a>
 
