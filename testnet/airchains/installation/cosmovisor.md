@@ -26,6 +26,10 @@ wget https://raw.githubusercontent.com/0xChicharito/Cosmovisor/refs/heads/main/i
 ### Check script content:
 
 ```bash
+nano init-cosmovisor.sh
+```
+
+```bash
 #!/bin/bash
 
 if [ -z "$1" ]; then
