@@ -1,6 +1,6 @@
 # 🪢 Cosmovisor
 
-#### Install Cosmovisor <a href="#install-cosmovisor" id="install-cosmovisor"></a>
+### Install Cosmovisor <a href="#install-cosmovisor" id="install-cosmovisor"></a>
 
 * Check go version #requirement go version above v.1.22 if you have Go v.1.22 already. Please skip install Go step.
 
