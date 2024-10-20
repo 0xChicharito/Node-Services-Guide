@@ -15,6 +15,7 @@
 * [🟢 Story Protocol](testnet/story-protocol/README.md)
   * [💾 Service & Snapshot](testnet/story-protocol/service-and-snapshot.md)
   * [⚙️ Installation](testnet/story-protocol/installation/README.md)
+    * [Cosmovisor](testnet/story-protocol/installation/cosmovisor.md)
     * [⛓️ Upgrade](testnet/story-protocol/installation/upgrade.md)
   * [🛰️ Command](testnet/story-protocol/command.md)
 * [🟢 0G Chain](testnet/0g-chain/README.md)
