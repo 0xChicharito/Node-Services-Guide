@@ -26,7 +26,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.p
 
 ### Snapshot <a href="#snapshot" id="snapshot"></a>
 
-height: **646198**, size: **1.8G**
+height: **724658**, size: **2.1G**
 
 ```bash
 sudo systemctl stop prysmd
