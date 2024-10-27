@@ -6,7 +6,7 @@
 sudo journalctl -u kopid -f
 ```
 
-#### Api
+#### API
 
 ```bash
 sudo systemctl status kopid -f
