@@ -3,6 +3,11 @@
 ## 🚀 Testnet
 
 * [🧬 Explorer](README.md)
+* [🟢 Kopi Protocol](testnet/kopi-protocol/README.md)
+  * [💾 Service & Snapshot](testnet/kopi-protocol/service-and-snapshot.md)
+  * [⚙️ Installation](testnet/kopi-protocol/installation.md)
+  * [🪢 Update Cosmovisor](testnet/kopi-protocol/update-cosmovisor.md)
+* [🛰️ Command](testnet/command.md)
 * [🟢 Prysm](testnet/prysm/README.md)
   * [🛰️ Service & Snapshot](testnet/prysm/service-and-snapshot.md)
   * [⚙️ Installation](testnet/prysm/installation.md)

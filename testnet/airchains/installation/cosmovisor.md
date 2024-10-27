@@ -58,7 +58,7 @@ chmod +x init-cosmovisor.sh
 source $HOME/.bash_profile
 ```
 
-### **Download Story binary v0.2.0**
+### **Download binary v0.2.0**
 
 ```bash
 cd $HOME
