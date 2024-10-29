@@ -13,7 +13,7 @@ Peer
 2625169af3c12c7ce5275454741004b8980bf6da@65.21.97.150:47656
 ```
 
-*Latest snapshot: Tue, 29 Oct 2024 00:05:00 GMT | 10.22 GB*
+*Latest snapshot: Tue, 29 Oct 2024 04:18:08 GMT | 10.21 GB*
 
 ```bash
 sudo systemctl stop 0gchaind
