@@ -25,7 +25,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 ```
 
 ## Snapshot
-
+height: **148036**, size: **1.6G**
 height: **143267**, size: **1.5G**
 
 ```bash
