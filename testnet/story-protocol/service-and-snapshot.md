@@ -25,7 +25,9 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 ```
 
 ## Snapshot
+
 height: **143267**, size: **1.5G**
+
 ```bash
 # install dependencies, and disable statesync to avoid sync issues
 sudo apt install curl tmux jq lz4 unzip aria2 -y
@@ -34,8 +36,8 @@ sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" $HOME/.story/st
 # stop node, download Story and Geth snapshot
 cd $HOME
 sudo systemctl stop story story-geth
-aria2c -x 16 -s 16 -o story-archive-snap.tar.lz4 https://server-8.itrocket.net/testnet/story/story_2024-10-30_143267_snap.tar.lz4
-aria2c -x 16 -s 16 -o geth-archive-snap.tar.lz4 https://server-8.itrocket.net/testnet/story/geth_story_2024-10-30_143267_snap.tar.lz4
+aria2c -x 16 -s 16 -o story-archive-snap.tar.lz4 https://snapshot.node9x.com/story_testnet.tar.lz4
+aria2c -x 16 -s 16 -o geth-archive-snap.tar.lz4 https://snapshot.node9x.com/geth_story_testnet.tar.lz4
 
 # backup priv_validator_state.json, remove data, unpack Story snapshot and restore priv_validator_state.json
 cp $HOME/.story/story/data/priv_validator_state.json $HOME/.story/story/priv_validator_state.json.backup
