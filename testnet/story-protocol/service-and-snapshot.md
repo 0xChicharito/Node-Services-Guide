@@ -25,7 +25,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 ```
 
 ## Snapshot
-
+height: **143267**, size: **1.5G**
 ```bash
 # install dependencies, and disable statesync to avoid sync issues
 sudo apt install curl tmux jq lz4 unzip aria2 -y
