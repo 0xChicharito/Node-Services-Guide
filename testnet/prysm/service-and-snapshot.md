@@ -2,9 +2,10 @@
 
 ### Public Endpoint <a href="#public-endpoint" id="public-endpoint"></a>
 
-| RPC | [https://prysm-rpc.node9x.com](https://prysm-rpc.node9x.com) |
-| --- | ------------------------------------------------------------ |
-|     |                                                              |
+| RPC       | [https://prysm-rpc.node9x.com](https://prysm-rpc.node9x.com) |
+| --------- | ------------------------------------------------------------ |
+| gRPC      | prysm-grpc.node9x.com:443                                    |
+| Websocket | wss://prysm-rpc.node9x.com/websocket                         |
 
 ### Peer <a href="#peer" id="peer"></a>
 
