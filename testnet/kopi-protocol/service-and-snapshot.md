@@ -2,7 +2,7 @@
 
 #### Public Endpoint <a href="#public-endpoint" id="public-endpoint"></a>
 
-| RPC  | [https://prysm-rpc.node9x.com](https://kopi-rpc.node9x.com/) |
+| RPC  | [https://kopi-rpc.node9x.com/](https://kopi-rpc.node9x.com/) |
 | ---- | ------------------------------------------------------------ |
 | gRPC | kopi-grpc.node9x.com:443                                     |
 
