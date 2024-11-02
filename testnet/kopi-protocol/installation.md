@@ -33,11 +33,11 @@ source $HOME/.bash_profile
 
 ### Cloning Kopi repository and installing it locally:
 
-#### test5 v0.6.3
+#### test5 v0.6.4
 
 ```bash
 rm -rf ${HOME}/kopi
-git clone --quiet --depth 1 --branch v0.6.3 https://github.com/kopi-money/kopi.git ${HOME}/kopi
+git clone --quiet --depth 1 --branch v0.6.4 https://github.com/kopi-money/kopi.git ${HOME}/kopi
 cd ${HOME}/kopi
 make install
 ```
@@ -187,6 +187,15 @@ LimitNOFILE=4096
 WantedBy=multi-user.target
 EOF
 ```
+
+<pre class="language-bash"><code class="lang-bash"><strong>#reset and download snapshot
+</strong>kopid tendermint unsafe-reset-all --home $HOME/.kopid
+if curl -s --head curl https://snapshots2.stakerhouse.com/kopi/kopi_859357.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl https://snapshots2.stakerhouse.com/kopi/kopi_859357.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.kopid
+    else
+  echo "no snapshot found"
+fi
+</code></pre>
 
 #### Service:
 
