@@ -20,7 +20,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.k
 Snapshot from block **`812500`**
 {% endhint %}
 
-height: **859357**, size: **72 MB**&#x20;
+height: **914042**, size: **68 MB**&#x20;
 
 ```
 sudo systemctl stop kopid
