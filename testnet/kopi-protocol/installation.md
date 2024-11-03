@@ -190,8 +190,8 @@ EOF
 
 <pre class="language-bash"><code class="lang-bash"><strong>#reset and download snapshot
 </strong>kopid tendermint unsafe-reset-all --home $HOME/.kopid
-if curl -s --head curl https://snapshots2.stakerhouse.com/kopi/kopi_859357.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://snapshots2.stakerhouse.com/kopi/kopi_859357.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.kopid
+if curl -s --head curl https://snapshot.node9x.com/kopi_testnet.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl https://snapshot.node9x.com/kopi_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.kopid
     else
   echo "no snapshot found"
 fi
