@@ -74,7 +74,7 @@ go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
 echo "export MONIKER="your-moniker"" >> $HOME/.bash_profile
 echo "export KOPI_CHAIN_ID="kopi-test-5"" >> $HOME/.bash_profile
-echo "export KOPI_PORT="11"" >> $HOME/.bash_profile
+echo "export KOPI_PORT="25"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
