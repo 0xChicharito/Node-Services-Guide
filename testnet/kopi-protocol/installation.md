@@ -165,23 +165,21 @@ curl -Ls https://files.chaintools.tech/chains/kopi/testnet/addrbook.json > $HOME
 ```bash
 sudo tee /etc/systemd/system/kopid.service > /dev/null << EOF
 [Unit]
-Description=Cosmovisor daemon
+Description=Cosmovisor Kopi Protocal 
 After=network-online.target
 
 [Service]
+User=root
+Type=simple
+ExecStart=/root/go/bin/cosmovisor run start
+Restart=on-failure
+LimitNOFILE=65535
 Environment="DAEMON_NAME=kopid"
-Environment="DAEMON_HOME=$HOME/.kopid"
+Environment="DAEMON_HOME=/root/.kopid"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
-Environment="DAEMON_POLL_INTERVAL=300ms"
-Environment="DAEMON_DATA_BACKUP_DIR=$HOME/.kopid"
-Environment="UNSAFE_SKIP_BACKUP=false"
-Environment="DAEMON_PREUPGRADE_MAX_RETRIES=0"
-User=$USER
-ExecStart=$HOME/go/bin/cosmovisor run start
-Restart=on-failure
-RestartSec=10
-LimitNOFILE=4096
+Environment="DAEMON_DATA_BACKUP_DIR=/root/.kopid/cosmovisor/backup"
+Environment="UNSAFE_SKIP_BACKUP=true"
 
 [Install]
 WantedBy=multi-user.target
