@@ -33,11 +33,11 @@ source $HOME/.bash_profile
 
 ### Cloning Kopi repository and installing it locally:
 
-#### test5 v0.6.4
+#### test5 v0.6.4.1
 
 ```bash
 rm -rf ${HOME}/kopi
-git clone --quiet --depth 1 --branch v0.6.4 https://github.com/kopi-money/kopi.git ${HOME}/kopi
+git clone --quiet --depth 1 --branch v0.6.4.1 https://github.com/kopi-money/kopi.git ${HOME}/kopi
 cd ${HOME}/kopi
 make install
 ```
@@ -46,22 +46,6 @@ Check Kopi version
 
 ```bash
 $HOME/go/bin/kopid version --long | tail
-```
-
-#### Configure Cosmovisor:
-
-```bash
-cd $HOME
-mkdir -p $HOME/.kopid/cosmovisor/genesis/bin
-mkdir -p $HOME/.kopid/cosmovisor/upgrades
-cp $HOME/go/bin/kopid $HOME/.kopid/cosmovisor/genesis/bin/
-```
-
-#### Download and install Cosmovisor
-
-```bash
-cd $HOME
-go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 ```
 
 ### INITIA NODE:
@@ -163,24 +147,18 @@ curl -Ls https://files.chaintools.tech/chains/kopi/testnet/addrbook.json > $HOME
 ### Create service:
 
 ```bash
-sudo tee /etc/systemd/system/kopid.service > /dev/null << EOF
+sudo tee /etc/systemd/system/kopid.service > /dev/null <<EOF
+
 [Unit]
-Description=Cosmovisor Kopi Protocal 
+Description=Kopi node
 After=network-online.target
-
 [Service]
-User=root
-Type=simple
-ExecStart=/root/go/bin/cosmovisor run start
+User=$USER
+WorkingDirectory=$HOME/.kopid
+ExecStart=$(which kopid) start --home $HOME/.kopid
 Restart=on-failure
+RestartSec=5
 LimitNOFILE=65535
-Environment="DAEMON_NAME=kopid"
-Environment="DAEMON_HOME=/root/.kopid"
-Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
-Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
-Environment="DAEMON_DATA_BACKUP_DIR=/root/.kopid/cosmovisor/backup"
-Environment="UNSAFE_SKIP_BACKUP=true"
-
 [Install]
 WantedBy=multi-user.target
 EOF
