@@ -1,4 +1,4 @@
-# Upgrade
+# 🪢 Upgrade (v0.12.1)
 
 All node operators must upgrade to Story client version v0.12.1 at block height 322,000.
 
