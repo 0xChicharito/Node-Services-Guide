@@ -10,11 +10,7 @@
 | Websocket     | [wss://rpc-story.node9x.com/websocket](wss://rpc-story.node9x.com/websocket) |
 | EVM Websocket | [wss://wss-story.node9x.com/](wss://wss-story.node9x.com/)                   |
 
-## Peer
 
-```bash
-curl -s localhost:52657/status | jq -r '.result.node_info | "\(.id)@'"$(curl -4 -s ifconfig.me)"':\(.listen_addr | split(":")[-1])"'
-```
 
 ## Live Peers
 
@@ -25,6 +21,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 ```
 
 ## Snapshot
+
 height: **368084**, size: **3.8G**
 
 ```bash

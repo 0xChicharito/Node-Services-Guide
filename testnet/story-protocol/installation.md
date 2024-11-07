@@ -1,5 +1,5 @@
 ---
-cover: ../../../.gitbook/assets/1080x360 (1).jpg
+cover: ../../.gitbook/assets/1080x360 (1).jpg
 coverY: 0
 ---
 
@@ -125,7 +125,7 @@ cp $HOME/.story/story/data/priv_validator_state.json $HOME/.story/story/priv_val
 
 # remove old data and unpack Story snapshot
 rm -rf $HOME/.story/story/data
-curl https://server-3.itrocket.net/testnet/story/story_2024-10-29_121705_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story/story
+curl https://snapshot.node9x.com/story_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story/story
 
 # restore priv_validator_state.json
 mv $HOME/.story/story/priv_validator_state.json.backup $HOME/.story/story/data/priv_validator_state.json
@@ -133,7 +133,7 @@ mv $HOME/.story/story/priv_validator_state.json.backup $HOME/.story/story/data/p
 # delete geth data and unpack Geth snapshot
 rm -rf $HOME/.story/geth/odyssey/geth/chaindata
 mkdir -p $HOME/.story/geth/odyssey/geth
-curl https://server-3.itrocket.net/testnet/story/geth_story_2024-10-29_121705_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story/geth/odyssey/geth
+curl https://snapshot.node9x.com/geth_story_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.story/geth/odyssey/geth
 
 # enable and start geth, story
 sudo systemctl daemon-reload
