@@ -144,12 +144,6 @@ sudo systemctl restart story-geth && sleep 5 && sudo systemctl restart story
 journalctl -u story -u story-geth -f
 ```
 
-### Automatic Installation <a href="#auto-installation" id="auto-installation"></a>
-
-```bash
-source <(curl -s https://itrocket.net/api/testnet/story/story-autoinstall/)
-```
-
 ### Create validator <a href="#create-validator" id="create-validator"></a>
 
 View your validator key
@@ -170,7 +164,9 @@ View EVM private key and make a key backup
 cat $HOME/.story/story/config/private_key.txt
 ```
 
-Use this private key to import your account into a wallet, e.g. Metamask.  Add the odyssey testnet to your wallet via [faucet](https://faucet.story.foundation/). &#x20;
+Faucet link: [https://odyssey.faucet.story.foundation/](https://odyssey.faucet.story.foundation/)
+
+Storyscan: [https://odyssey-testnet-explorer.storyscan.xyz/](https://odyssey-testnet-explorer.storyscan.xyz/)
 
 #### Before creating a validator, wait for your node to get fully synced. Once "catching\_up" is "false", move on to the next step
 
@@ -181,7 +177,16 @@ curl localhost:$(sed -n '/\[rpc\]/,/laddr/ { /laddr/ {s/.*://; s/".*//; p} }' $H
 #### Create validator
 
 ```bash
-story validator create --stake 1000000000000000000 --private-key $(cat $HOME/.story/story/config/private_key.txt | grep "PRIVATE_KEY" | awk -F'=' '{print $2}')
+story validator create --stake 1000000000000000000 --private-key "your_private_key"
+```
+
+**Validator staking**
+
+```bash
+story validator stake \
+   --validator-pubkey "VALIDATOR_PUB_KEY_IN_BASE64" \
+   --stake 1000000000000000000 \
+   --private-key xxxxxxxxxxxxxx
 ```
 
 ### Remember to backup your validator priv\_key from here:
