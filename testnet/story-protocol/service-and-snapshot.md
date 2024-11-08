@@ -25,7 +25,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 height: **368084**, size: **3.8G**
 
 ```bash
-height: **391554**, size: **4.2G**
+height: **396077**, size: **4.4G**
 sudo apt install curl tmux jq lz4 unzip aria2 -y
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" $HOME/.story/story/config/config.toml
 
