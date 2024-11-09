@@ -64,7 +64,7 @@
 * [🟢 Dill Chain](testnet/dill-chain/README.md)
   * [Usage Commands](testnet/dill-chain/usage-commands.md)
 * [🟢 Fiamma Chain](testnet/fiamma-chain/README.md)
-  * [🥦 Services & Snapshot](testnet/fiamma-chain/fresh-peer.md)
+  * [🥦 Services & Snapshot](testnet/fiamma-chain/services-and-snapshot.md)
   * [⚙️ Installation](testnet/fiamma-chain/installation.md)
   * [🔌 Installation](testnet/fiamma-chain/installation-1.md)
   * [🛰️ Usage Command](testnet/fiamma-chain/usage-command.md)
