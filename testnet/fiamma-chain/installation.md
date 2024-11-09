@@ -100,8 +100,9 @@ EOF
 
 # reset and download snapshot
 fiammad tendermint unsafe-reset-all --home $HOME/.fiamma
-if curl -s --head curl https://server-5.itrocket.net/testnet/fiamma/fiamma_2024-11-09_40079_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://server-5.itrocket.net/testnet/fiamma/fiamma_2024-11-09_40079_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.fiamma
+if curl -s --head curl curl -i https://snapshot.node9x.com/fiamma_testnet.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl curl -i https://snapshot.node9x.com/fiamma_testnet.tar.lz4
+ | lz4 -dc - | tar -xf - -C $HOME/.fiamma
     else
   echo "no snapshot found"
 fi

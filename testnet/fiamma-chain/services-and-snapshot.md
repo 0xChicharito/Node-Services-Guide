@@ -32,7 +32,7 @@ curl -sS http://localhost:(whatever you typed in custom_port)657/net_info | jq -
 sudo systemctl stop fiammad
 cp $HOME/.fiamma/data/priv_validator_state.json $HOME/.fiamma/priv_validator_state.json.backup
 rm -rf $HOME/.fiamma/data $HOME/.fiamma/wasm
-curl https://server-5.itrocket.net/testnet/fiamma/fiamma_2024-11-09_40079_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.fiamma
+curl curl -i https://snapshot.node9x.com/fiamma_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.fiamma
 mv $HOME/.fiamma/priv_validator_state.json.backup $HOME/.fiamma/data/priv_validator_state.json
 sudo systemctl restart fiammad && sudo journalctl -u fiammad -f
 ```
