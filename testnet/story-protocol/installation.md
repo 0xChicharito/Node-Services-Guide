@@ -177,7 +177,7 @@ curl localhost:$(sed -n '/\[rpc\]/,/laddr/ { /laddr/ {s/.*://; s/".*//; p} }' $H
 #### Create validator
 
 ```bash
-story validator create --stake 1000000000000000000 --private-key "your_private_key"
+story validator create --stake 1024000000000000000000 --moniker "your-node-name" --private-key "your_private_key"
 ```
 
 **Validator staking**

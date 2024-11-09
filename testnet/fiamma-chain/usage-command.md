@@ -1,6 +1,4 @@
-# ⚙️ Usage Command
-
-### ⚙️Service <a href="#service" id="service"></a>
+# 🛰️ Usage Command
 
 **Info**
 
@@ -73,7 +71,7 @@ fiammad keys list
 **Check Balance**
 
 ```bash
-fiammad query bank balances fiamma...addressjkl1yjgn7z09ua9vms259j
+fiammad q bank balances $WALLET_ADDRESS 
 ```
 
 **Delete Key**
@@ -100,16 +98,14 @@ fiammad keys import wallet wallet.backup
 
 ```bash
 fiammad tx staking edit-validator \
---new-moniker "Your_Moniker" \
---identity "Keybase_ID" \
---details "Your_Description" \
---website "Your_Website" \
---security-contact "Your_Email" \
+--commission-rate 0.1 \
+--new-moniker "$MONIKER" \
+--identity "" \
+--details "I love blockchain ❤️" \
+--from $WALLET \
 --chain-id fiamma-testnet-1 \
---commission-rate 0.05 \
---from Wallet_Name \
---fees=500ufia \
--y
+--gas auto --gas-adjustment 1.5 \
+-y 
 ```
 
 **Your Valoper-Address**
@@ -176,32 +172,31 @@ fiammad  tx distribution withdraw-rewards valoper1a........ --from Wallet_Name -
 **Delegate tokens to your validator**
 
 ```bash
-fiammad tx staking delegate valpoer........ "100000000"ufia --from Wallet_Name --fees=500ufia --chain-id=fiamma-testnet-1 -y
+fiammad tx staking delegate $(fiammad keys show $WALLET --bech val -a) 1000000ufia --from $WALLET --chain-id fiamma-testnet-1 --gas auto --gas-adjustment 1.5 -y 
 ```
 
 **Delegate tokens to different validator**
 
 ```bash
-fiammad tx staking delegate valpoer........ "100000000"ufia --from Wallet_Name --fees=500ufia --chain-id=fiamma-testnet-1 -y
+fiammad tx staking delegate <TO_VALOPER_ADDRESS> 1000000ufia --from $WALLET --chain-id fiamma-testnet-1 --gas auto --gas-adjustment 1.5 -y 	
 ```
 
 **Redelegate tokens to another validator**
 
 ```bash
-fiammad tx staking redelegate valpoer........ valpoer........ "100000000"ufia --from Wallet_Name --fees=500ufia --chain-id=fiamma-testnet-1 -y
+fiammad tx staking redelegate $VALOPER_ADDRESS <TO_VALOPER_ADDRESS> 1000000ufia --from $WALLET --chain-id fiamma-testnet-1 --gas auto --gas-adjustment 1.5 -y 
 ```
 
 **Unbond tokens from your validator or different validator**
 
 ```bash
-fiammad tx staking unbond Your_valpoer........ "100000000"ufia --from Wallet_Name --fees=500ufia --chain-id=fiamma-testnet-1 -y
-fiammad tx staking unbond valpoer........ "100000000"ufia --from Wallet_Name --fees=500ufia --chain-id=fiamma-testnet-1 -y
+fiammad tx staking unbond $(fiammad keys show $WALLET --bech val -a) 1000000ufia --from $WALLET --chain-id fiamma-testnet-1 --gas auto --gas-adjustment 1.5 -y 
 ```
 
 **Transfer tokens from wallet to wallet**
 
 ```bash
-fiammad tx bank send Your_address............ address........... "1000000000000000000"ufia --fees=500ufia --chain-id=fiamma-testnet-1 -y
+fiammad tx bank send $WALLET_ADDRESS <TO_WALLET_ADDRESS> 1000000ufia --gas auto --gas-adjustment 1.5 -y 
 ```
 
 ### 📝Governance <a href="#governance" id="governance"></a>

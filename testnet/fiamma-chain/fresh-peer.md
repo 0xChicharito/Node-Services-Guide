@@ -1,23 +1,11 @@
-# 🥦 Fresh Peer
+# 🥦 Services & Snapshot
+
+<table data-header-hidden><thead><tr><th width="99"></th><th></th></tr></thead><tbody><tr><td>RPC</td><td><a href="https://fiamma-rpc.node9x.com/">https://fiamma-rpc.node9x.com</a></td></tr><tr><td>API</td><td><a href="https://fiamma-api.node9x.com/">https://fiamma-api.node9x.com/</a></td></tr><tr><td>gRPC</td><td>fiamma-grpc.node9x.com:443</td></tr></tbody></table>
 
 ```bash
-URL="https://fiamma-rpc.node9x.com/net_info"
-```
-
-```bash
-response=$(curl -s $URL)
-```
-
-```bash
-PEERS=$(echo $response | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):" + (.node_info.listen_addr | capture("(?<ip>.+):(?<port>[0-9]+)$").port)' | paste -sd "," -)
-```
-
-```bash
-echo "PEERS=\"$PEERS\""
-```
-
-```
-sed -i 's|^persistent_peers *=.*|persistent_peers = "'$PEERS'"|' $HOME/.symphonyd/config/config.toml
+PEERS=$(curl -sS https://fiamma-rpc.node9x.com/net_info | jq -r '.result.peers[] | "\(.node_info.id)@\(.remote_ip):\(.node_info.listen_addr)"' | awk -F ':' '{print $1":"$(NF)}' | paste -sd, -)
+echo $PEERS
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.fiamma/config/config.toml
 ```
 
 ```bash
@@ -40,4 +28,11 @@ curl -sS http://localhost:(whatever you typed in custom_port)657/net_info | jq -
 
 ## Latest Snapshot
 
-(https://raw.githubusercontent.com/0xChicharito/Fiamma-block/main/log-summary.md?token=GHSAT0AAAAAACWCEJ6AFJEZUZF46OWOUVIYZWAEHUQ)
+```bash
+sudo systemctl stop fiammad
+cp $HOME/.fiamma/data/priv_validator_state.json $HOME/.fiamma/priv_validator_state.json.backup
+rm -rf $HOME/.fiamma/data $HOME/.fiamma/wasm
+curl https://server-5.itrocket.net/testnet/fiamma/fiamma_2024-11-09_40079_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.fiamma
+mv $HOME/.fiamma/priv_validator_state.json.backup $HOME/.fiamma/data/priv_validator_state.json
+sudo systemctl restart fiammad && sudo journalctl -u fiammad -f
+```
