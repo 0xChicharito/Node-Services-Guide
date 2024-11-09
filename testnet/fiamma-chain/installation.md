@@ -164,8 +164,6 @@ done
 
 ### Create validator <a href="#create-validator" id="create-validator"></a>
 
-MonikerIdentityDetailsAmount, ufiaCommission rateCommission max rateCommission max change rateWebsite
-
 ```bash
 cd $HOME
 # Create validator.json file
@@ -175,7 +173,7 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(fiamm
     \"identity\": \"\",
     \"website\": \"\",
     \"security\": \"\",
-    \"details\": \"I love blockchain ❤️\",
+    \"details\": \"I love Fiamma ❤️\",
     \"commission-rate\": \"0.1\",
     \"commission-max-rate\": \"0.2\",
     \"commission-max-change-rate\": \"0.01\",
