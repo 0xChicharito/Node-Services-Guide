@@ -10,8 +10,6 @@
 | Websocket     | [wss://rpc-story.node9x.com/websocket](wss://rpc-story.node9x.com/websocket) |
 | EVM Websocket | [wss://wss-story.node9x.com/](wss://wss-story.node9x.com/)                   |
 
-
-
 ## Live Peers
 
 ```bash
@@ -25,7 +23,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 height: **368084**, size: **3.8G**
 
 ```bash
-height: **481128**, size: **15G**
+# install dependencies, and disable statesync to avoid sync issues
 sudo apt install curl tmux jq lz4 unzip aria2 -y
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" $HOME/.story/story/config/config.toml
 
