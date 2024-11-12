@@ -26,7 +26,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.p
 ```
 
 ### Snapshot <a href="#snapshot" id="snapshot"></a>
-height: **1829490**, size: **9.2G**
+height: **1838326**, size: **9.2G**
 ```bash
 sudo systemctl stop prysmd
 cp $HOME/.prysm/data/priv_validator_state.json $HOME/.prysm/priv_validator_state.json.backup
