@@ -6,7 +6,7 @@ description: 'Recommended Hardware: 4 Cores, 16GB RAM, 1TB of storage (NVME)'
 
 ### **System updates, installation of required dependencies** <a href="#system-updates-installation-of-required-dependencies" id="system-updates-installation-of-required-dependencies"></a>
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install clang cmake build-essential
 sudo apt install cargo
@@ -14,7 +14,7 @@ sudo apt install cargo
 
 **Install go**
 
-```
+```bash
 cd $HOME && \
 ver="1.22.0" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
@@ -28,7 +28,7 @@ go version
 
 **Install rust**
 
-```
+```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustc --version
 ```
@@ -37,9 +37,9 @@ _When prompted choice of 1,2 and 3 just hit enter to continue_
 
 **Build zgs\_node binary from source with rust**
 
-```
+```bash
 rm -rf 0g-storage-node
-git clone -b v0.4.4 https://github.com/0glabs/0g-storage-node.git
+git clone -b v0.7.3 https://github.com/0glabs/0g-storage-node.git
 cd 0g-storage-node
 git stash
 git tag -d v0.4.4
@@ -54,11 +54,11 @@ cargo build --release
 
 PLEASE INPUT YOUR OWN JSON-RPC ENDPOINT (VALIDATOR\_NODE\_IP:8545) OR YOU CAN OUR ENDPOINTS PLEASE CHECK [README](https://github.com/hubofvalley/Testnet-Guides/blob/main/0g%20\(zero-gravity\)/README.md)
 
-```
+```bash
 read -p "Enter json-rpc: " BLOCKCHAIN_RPC_ENDPOINT && echo "Current json-rpc: $BLOCKCHAIN_RPC_ENDPOINT"
 ```
 
-```
+```bash
 ENR_ADDRESS=$(wget -qO- eth0.me)
 echo "export ENR_ADDRESS=${ENR_ADDRESS}" >> ~/.bash_profile
 echo 'export ZGS_LOG_DIR="$HOME/0g-storage-node/run/log"' >> ~/.bash_profile
@@ -74,13 +74,11 @@ echo -e "\n\033[31mCHECK YOUR STORAGE NODE VARIABLES\033[0m\n\nLOG_CONTRACT_ADDR
 
 ALSO CHECK THE JSON-RPC SYNC, MAKE SURE IT'S IN THE LATEST BLOCK
 
-```
+```bash
 curl -s -X POST $BLOCKCHAIN_RPC_ENDPOINT -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' | jq -r '.result' | xargs printf "%d\n"
 ```
 
-
-
-```
+```bash
 # Extract Ethereum private key from the specified wallet
 0gchaind keys unsafe-export-eth-key $WALLET_NAME
 read -sp "Enter your extracted private key: " PRIVATE_KEY && echo
@@ -91,7 +89,7 @@ sed -i 's|^miner_key = ""|miner_key = "'"$PRIVATE_KEY"'"|' $HOME/0g-storage-node
 
 Set parameters in config.toml
 
-```
+```bash
 sed -i '
 s|^miner_key = ""|miner_key = "'"$PRIVATE_KEY"'"|
 s|^\s*#\?\s*network_dir\s*=.*|network_dir = "network"|
@@ -117,7 +115,7 @@ s|^\s*#\?\s*blockchain_rpc_endpoint\s*=.*|blockchain_rpc_endpoint = "'"$BLOCKCHA
 
 ### **Create zgs service (storage node) for your node to run in the background** <a href="#create-zgs-service-storage-node-for-your-node-to-run-in-the-background" id="create-zgs-service-storage-node-for-your-node-to-run-in-the-background"></a>
 
-```
+```bash
 sudo tee /etc/systemd/system/zgs.service > /dev/null <<EOF
 [Unit]
 Description=ZGS Node
@@ -138,7 +136,7 @@ EOF
 
 **Start Storage node**
 
-```
+```bash
 sudo systemctl daemon-reload && \
 sudo systemctl enable zgs && \
 sudo systemctl restart zgs
@@ -152,25 +150,25 @@ $HOME/0g-storage-node/target/release/zgs\_node --version
 
 * full logs command
 
-```
+```bash
 tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)
 ```
 
 * tx\_seq-only logs command
 
-```
+```bash
 tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d) | grep tx_seq:
 ```
 
 * minimized-logs command
 
-```
+```bash
 tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d) | grep -v "discv5\|network\|connect\|16U\|nounce"
 ```
 
 * check your storage node through rpc
 
-```
+```bash
 curl -X POST http://localhost:5678 -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"zgs_getStatus","params":[],"id":1}'  | jq
 ```
 
@@ -178,7 +176,7 @@ curl -X POST http://localhost:5678 -H "Content-Type: application/json" -d '{"jso
 
 Build Storage CLI with source code
 
-```
+```bash
 git clone https://github.com/0glabs/0g-storage-client.git
 cd 0g-storage-client
 go build
@@ -186,14 +184,14 @@ go build
 
 Generate Test file for uploading via Storage CLI
 
-```
+```bash
 cd $HOME/0g-storage-client
 ./0g-storage-client gen --file test.txt
 ```
 
 Upload test file with storage CLI
 
-```
+```bash
 ./0g-storage-client upload \
 --url $BLOCKCHAIN_RPC_ENDPOINT \
 --contract $LOG_CONTRACT_ADDRESS \

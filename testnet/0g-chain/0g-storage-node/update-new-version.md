@@ -1,4 +1,4 @@
-# Update New Version
+# Upgrade (v0.7.3)
 
 ### 1. Stop node <a href="#id-1.-stop-node" id="id-1.-stop-node"></a>
 
@@ -17,7 +17,7 @@ mv $HOME/0g-storage-node/run/config-testnet-turbo.toml $HOME/config-testnet-turb
 ```bash
 cd $HOME/0g-storage-node
 git fetch --all --tags
-git checkout v0.4.4
+git checkout v0.7.3
 git submodule update --init
 cargo build --release
 ```

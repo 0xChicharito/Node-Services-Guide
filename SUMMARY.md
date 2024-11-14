@@ -32,7 +32,7 @@
     * [Create EVM RPC endpoint](testnet/0g-chain/commands/create-evm-rpc-endpoint.md)
   * [Grafana Dashboard - Monitor node](testnet/0g-chain/grafana-dashboard-monitor-node.md)
   * [☑️ 0G Storage Node](testnet/0g-chain/0g-storage-node/README.md)
-    * [Update New Version](testnet/0g-chain/0g-storage-node/update-new-version.md)
+    * [Upgrade (v0.7.3)](testnet/0g-chain/0g-storage-node/update-new-version.md)
   * [☑️ 0G Storage KV](testnet/0g-chain/0g-storage-kv.md)
   * [☑️ 0G DA Node](testnet/0g-chain/0g-da-node/README.md)
     * [Update](testnet/0g-chain/0g-da-node/update.md)
