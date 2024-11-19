@@ -31,7 +31,7 @@ neutrino:
   path: "/root/.zrchain/sidecar/neutrino"
 ```
 
-### 2. Update `eigen_operator_config.yam`l <a href="#id-1.-stop-node" id="id-1.-stop-node"></a>
+### 2. Update `eigen_operator_config.yaml` <a href="#id-1.-stop-node" id="id-1.-stop-node"></a>
 
 ```bash
 nano /root/.zrchain/sidecar/config.yaml
