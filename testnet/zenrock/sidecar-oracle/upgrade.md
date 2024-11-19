@@ -87,7 +87,7 @@ chmod +x $HOME/.zrchain/sidecar/bin/validator_sidecar
 ### 4. Stop node and update service <a href="#id-1.-stop-node" id="id-1.-stop-node"></a>
 
 ```bash
-sudo systemctl stop zgs
+systemctl stop zenrock-sidecar
 ```
 
 ```bash
