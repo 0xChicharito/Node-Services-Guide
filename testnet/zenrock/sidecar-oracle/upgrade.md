@@ -2,7 +2,7 @@
 
 ### 1. Update `config.yaml` <a href="#id-1.-stop-node" id="id-1.-stop-node"></a>
 
-<pre><code><strong>nano /root/.zrchain/sidecar/config.yaml
+<pre class="language-bash"><code class="lang-bash"><strong>nano /root/.zrchain/sidecar/config.yaml
 </strong></code></pre>
 
 ```bash
@@ -32,6 +32,10 @@ neutrino:
 ```
 
 ### 2. Update `eigen_operator_config.yam`l <a href="#id-1.-stop-node" id="id-1.-stop-node"></a>
+
+```bash
+nano /root/.zrchain/sidecar/config.yaml
+```
 
 ```bash
 register_operator_on_startup: true
