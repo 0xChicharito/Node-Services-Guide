@@ -34,7 +34,7 @@ neutrino:
 ### 2. Update `eigen_operator_config.yaml` <a href="#id-1.-stop-node" id="id-1.-stop-node"></a>
 
 ```bash
-nano /root/.zrchain/sidecar/config.yaml
+nano /root/.zrchain/sidecar/eigen_operator_config.yaml
 ```
 
 ```bash
