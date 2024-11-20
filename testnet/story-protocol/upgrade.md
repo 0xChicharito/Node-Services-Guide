@@ -1,4 +1,4 @@
-# ⛓️ Upgrade (v0.12.1)
+# ⛓️ Cosmovisor
 
 **1. Install go**
 
@@ -54,7 +54,7 @@ source $HOME/.bash_profile
 
 ```bash
 mkdir -p $HOME/.story/story/cosmovisor/genesis/bin
-mkdir -p $HOME/.story/story/cosmovisor/upgrades/v0.12.1/bin
+mkdir -p $HOME/.story/story/cosmovisor/upgrades/v0.13.0/bin
 ```
 
 * Stop node
@@ -63,13 +63,13 @@ mkdir -p $HOME/.story/story/cosmovisor/upgrades/v0.12.1/bin
 sudo systemctl stop story
 ```
 
-* Download Story binary v0.12.1
+* Download Story binary v0.13.0
 
 ```bash
 #download binay
 cd $HOME
 rm story-linux-amd64
-wget https://github.com/piplabs/story/releases/download/v0.12.1/story-linux-amd64
+wget https://github.com/piplabs/story/releases/download/v0.13.0/story-linux-amd64
 chmod +x story-linux-amd64
 #replace binary
 sudo cp $HOME/story-linux-amd64 $(which story)
@@ -81,28 +81,30 @@ story version
 
 ```bash
 # Copy new version binary to upgrade folder
-sudo cp $HOME/story-linux-amd64 $HOME/.story/story/cosmovisor/upgrades/v0.12.1/bin/story
+sudo cp $HOME/story-linux-amd64 $HOME/.story/story/cosmovisor/upgrades/v0.13.0/bin/story
 ```
 
 * Add Upgrade Information for new version
 
 ```bash
-echo '{"name":"v0.12.1","time":"0001-01-01T00:00:00Z","height":322000}' > $HOME/.story/story/cosmovisor/upgrades/v0.12.1/upgrade-info.json
+echo '{"name":"v0.13.0","time":"0001-01-01T00:00:00Z","height":858000}' > $HOME/.story/story/cosmovisor/upgrades/v0.13.0/upgrade-info.json
 ```
 
 **5. Verify the Setup**
 
 ```bash
-# Check the story version in genesis folder. It should be old version is v0.12.0$HOME/.story/story/cosmovisor/genesis/bin/story version
+# Check the story version in genesis folder. It should be old version is v0.12.0
+$HOME/.story/story/cosmovisor/genesis/bin/story version
 ```
 
 ```bash
-# Check the new binary version in upgrade folder. It should be new version v0.12.1$HOME/.story/story/cosmovisor/upgrades/v0.12.1/bin/story version
+# Check the new binary version in upgrade folder. It should be new version v0.13.0
+$HOME/.story/story/cosmovisor/upgrades/v0.13.0/bin/story version
 ```
 
 ```bash
 # Check upgrade info
-cat $HOME/.story/story/cosmovisor/upgrades/v0.12.1/upgrade-info.json
+cat $HOME/.story/story/cosmovisor/upgrades/v0.13.0/upgrade-info.json
 ```
 
 * Update service file:
@@ -150,6 +152,6 @@ To schedule an upgrade to a new client version at a specific block height, cosmo
 
 ```bash
 source $HOME/.bash_profile
-cosmovisor add-upgrade v0.12.1 $HOME/.story/story/cosmovisor/upgrades/v0.12.1/bin/story --force --upgrade-height 322000
+cosmovisor add-upgrade v0.13.0 $HOME/.story/story/cosmovisor/upgrades/v0.13.0/bin/story --force --upgrade-height 858000
 ```
 

@@ -21,7 +21,7 @@
 * [🟢 Story Protocol](testnet/story-protocol/README.md)
   * [💾 Service & Snapshot](testnet/story-protocol/service-and-snapshot.md)
   * [⚙️ Installation (Odyssey)](testnet/story-protocol/installation.md)
-  * [🪢 Upgrade (v0.12.1)](testnet/story-protocol/upgrade-v0.12.1.md)
+  * [🪢 Upgrade (v0.13.0)](testnet/story-protocol/upgrade-v0.12.1.md)
   * [⛓️ Cosmovisor](testnet/story-protocol/upgrade.md)
   * [🛰️ Command](testnet/story-protocol/command.md)
 * [🟢 0G Chain](testnet/0g-chain/README.md)
