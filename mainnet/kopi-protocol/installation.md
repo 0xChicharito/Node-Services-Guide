@@ -233,7 +233,7 @@ sudo rm -rf $HOME/kopi
 rpc_port=$(grep -m 1 -oP '^laddr = "\K[^"]+' "$HOME/.kopid/config/config.toml" | cut -d ':' -f 3)
 while true; do
   local_height=$(curl -s localhost:$rpc_port/status | jq -r '.result.sync_info.latest_block_height')
-  network_height=$(curl -s https://rpc-kopi-t.sychonix.com/status | jq -r '.result.sync_info.latest_block_height')
+  network_height=$(curl -s https://kopi-rpc.node9x.com/status | jq -r '.result.sync_info.latest_block_height')
 
   if ! [[ "$local_height" =~ ^[0-9]+$ ]] || ! [[ "$network_height" =~ ^[0-9]+$ ]]; then
     echo -e "\033[1;31mError: Invalid block height data. Retrying...\033[0m"
