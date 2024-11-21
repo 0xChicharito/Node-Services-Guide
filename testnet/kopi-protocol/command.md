@@ -115,43 +115,43 @@ kopid keys import $WALLET wallet.backup
 #### Withdraw rewards and commission from your validator
 
 ```bash
-kopid tx distribution withdraw-rewards  --from  --commission --chain-id kopi-test-5 --gas auto --gas-adjustment 1.5 --fees 600ukopi -y
+kopid tx distribution withdraw-rewards $VALOPER_ADDRESS --from $WALLET --commission --chain-id luwak-1 --gas auto --gas-adjustment 1.5 -y 
 ```
 
 #### Check your balance
 
 ```bash
-kopid query bank balances 
+kopid query bank balances WALLET_ADDRESS
 ```
 
 #### Delegate to Yourself
 
 ```bash
-kopid tx staking delegate $(kopid keys show  --bech val -a) ukopi --from  --chain-id kopi-test-5 --gas auto --gas-adjustment 1.5 --fees 600ukopi -y
+kopid tx staking delegate $(kopid keys show $WALLET --bech val -a) 1000000ukopi --from $WALLET --chain-id luwak-1 --gas auto --gas-adjustment 1.5 -y 
 ```
 
 #### Delegate
 
 ```bash
-kopid tx staking delegate ukopi --from  --chain-id kopi-test-5 --gas auto --gas-adjustment 1.5 --fees 600ukopi -y
+kopid tx staking delegate ukopi --from  --chain-id luwak-1 --gas auto --gas-adjustment 1.5 -y
 ```
 
-#### Edit Validator
+#### Redelegate Stake to Another Validator
 
 ```bash
-kopid tx staking redelegate  ukopi --from  --chain-id kopi-test-5 --gas auto --gas-adjustment 1.5 --fees 600ukopi -y
+kopid tx staking redelegate  ukopi --from  --chain-id luwak-1 --gas auto --gas-adjustment 1.5 -y
 ```
 
 #### Unbond Your Stake
 
 ```bash
-kopid tx staking unbond $(kopid keys show  --bech val -a) ukopi --from  --chain-id kopi-test-5 --gas auto --gas-adjustment 1.5 --fees 600ukopi -y
+kopid tx staking unbond $(kopid keys show  --bech val -a) ukopi --from  --chain-id luwak-1 --gas auto --gas-adjustment 1.5 --fees 600ukopi -y
 ```
 
 #### Transfer Funds to Another Wallet
 
 ```bash
-kopid tx bank send  <TO_WALLET_ADDRESS> ukopi --gas auto --gas-adjustment 1.5 --fees 600ukopi-y
+kopid tx bank send  <TO_WALLET_ADDRESS> ukopi --gas auto --gas-adjustment 1.5 -y
 ```
 
 ## Validator Management
@@ -170,8 +170,8 @@ kopid tx staking create-validator \
 --moniker "$MONIKER" \
 --identity "$MyIdentity" \
 --details " Let's aim for a bright future 🔮" \
---chain-id kopi-test-5 \
---gas auto --gas-adjustment 1.5 --fees 600kopid \
+--chain-id luwak-1 \
+--gas auto --gas-adjustment 1.5 \
 -y
 ```
 
@@ -185,8 +185,8 @@ kopid tx staking create-validator \
 --identity "" \
 --details " Let's aim for a bright future 🔮" \
 --from $WALLET \
---chain-id kopi-test-5 \
---gas auto --gas-adjustment 1.5 --fees 600kopid \
+--chain-id luwak-1 \
+--gas auto --gas-adjustment 1.5 \
 -y 
 ```
 
@@ -217,7 +217,7 @@ kopid q slashing params
 #### Unjail validator
 
 ```bash
-kopid tx slashing unjail --from $WALLET --chain-id kopi-test-5 --gas auto --gas-adjustment 1.5 --fees 600kopid -y
+kopid tx slashing unjail --from $WALLET --chain-id luwak-1 --gas auto --gas-adjustment 1.5 -y
 ```
 
 #### Active Validators List

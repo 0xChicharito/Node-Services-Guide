@@ -33,11 +33,9 @@ source $HOME/.bash_profile
 
 ### Cloning Kopi repository and installing it locally:
 
-#### test5 v0.6.4.1
-
 ```bash
 rm -rf ${HOME}/kopi
-git clone --quiet --depth 1 --branch v0.6.4.1 https://github.com/kopi-money/kopi.git ${HOME}/kopi
+git clone --quiet --depth 1 --branch v0.6.5 https://github.com/kopi-money/kopi.git ${HOME}/kopi
 cd ${HOME}/kopi
 make install
 ```
@@ -57,7 +55,7 @@ $HOME/go/bin/kopid version --long | tail
 ```bash
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
 echo "export MONIKER="your-moniker"" >> $HOME/.bash_profile
-echo "export KOPI_CHAIN_ID="kopi-test-5"" >> $HOME/.bash_profile
+echo "export KOPI_CHAIN_ID="luwak-1"" >> $HOME/.bash_profile
 echo "export KOPI_PORT="25"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
@@ -166,7 +164,7 @@ EOF
 
 <pre class="language-bash"><code class="lang-bash"><strong>#reset and download snapshot
 </strong>kopid tendermint unsafe-reset-all --home $HOME/.kopid
-if curl -s --head curl https://snapshot.node9x.com/kopi_testnet.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+if curl -s --head curl https://snapshot.node9x.com/kopi-snapshot.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
   curl https://snapshot.node9x.com/kopi_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.kopid
     else
   echo "no snapshot found"
@@ -260,28 +258,23 @@ done
 
 ```bash
 cd $HOME
-echo "{
-  "pubkey": {
-    "@type":"/cosmos.crypto.ed25519.PubKey",
-    "key":"<replace with value from:priv_validator_key.json>"
-  },
-  "amount": "1000000ukopi",
-  "moniker": "YOUR_MONKIER",
-  "identity": "YOUR_KEYBASE_ID",
-  "website": "YOUR_WEBSITE_URL",
-  "security": "YOUR_EMAIL_ADDRESS",
-  "details": "Wiv-Sugar",
-  "commission-rate": "0.1",
-  "commission-max-rate": "0.2",
-  "commission-max-change-rate": "0.01",
-  "min-self-delegation": "1"
+# Create validator.json file
+echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(kopid comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
+    \"amount\": \"1000000ukopi\",
+    \"moniker\": \"\",
+    \"identity\": \"\",
+    \"website\": \"\",
+    \"security\": \"\",
+    \"details\": \"I love Kopi ❤️\",
+    \"commission-rate\": \"0.1\",
+    \"commission-max-rate\": \"0.2\",
+    \"commission-max-change-rate\": \"0.01\",
+    \"min-self-delegation\": \"1\"
 }" > validator.json
+# Create a validator using the JSON configuration
+kopid tx staking create-validator $HOME/validator.json \
+  --from $WALLET \
+  --chain-id luwak-1 \
+  -y
 ```
 
-### Send Transaction
-
-```bash
-kopid tx staking create-validator $HOME/.kopid/config/validator.json \
-  --from wallet \
-  --chain-id kopi-test-5
-```

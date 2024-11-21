@@ -3,7 +3,7 @@
 **Stop node**
 
 ```bash
-sudo systemctl stop 0gd.service
+sudo systemctl stop kopid
 ```
 
 #### Download install script: <a href="#download-install-script" id="download-install-script"></a>
@@ -44,7 +44,7 @@ echo "export DAEMON_ALLOW_DOWNLOAD_BINARIES=true" >> $HOME/.bash_profile
 ```bash
 source $HOME/.bash_profile
 chmod +x init-cosmovisor.sh
-./init-cosmovisor.sh $HOME/.junction
+./init-cosmovisor.sh $HOME/.kopid
 source $HOME/.bash_profile
 ```
 
