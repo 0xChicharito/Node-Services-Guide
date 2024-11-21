@@ -1,5 +1,2 @@
-# 🧬 Explorer
+# 🏆 MAINNET
 
-
-
-{% embed url="https://explorer.node9x.com/" %}

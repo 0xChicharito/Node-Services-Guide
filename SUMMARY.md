@@ -1,13 +1,15 @@
 # Table of contents
 
+* [🏆 MAINNET](README.md)
+  * [🟢 Kopi Protocol](mainnet/kopi-protocol/README.md)
+    * [💾 Service & Snapshot](mainnet/kopi-protocol/service-and-snapshot.md)
+    * [⚙️ Installation](mainnet/kopi-protocol/installation.md)
+    * [🪢 Update Cosmovisor](mainnet/kopi-protocol/update-cosmovisor.md)
+    * [🛰️ Command](mainnet/kopi-protocol/command.md)
+
 ## 🚀 Testnet
 
-* [🧬 Explorer](README.md)
-* [🟢 Kopi Protocol](testnet/kopi-protocol/README.md)
-  * [💾 Service & Snapshot](testnet/kopi-protocol/service-and-snapshot.md)
-  * [⚙️ Installation](testnet/kopi-protocol/installation.md)
-  * [🪢 Update Cosmovisor](testnet/kopi-protocol/update-cosmovisor.md)
-  * [🛰️ Command](testnet/kopi-protocol/command.md)
+* [🧬 Explorer](<README (1).md>)
 * [🟢 Prysm](testnet/prysm/README.md)
   * [🛰️ Service & Snapshot](testnet/prysm/service-and-snapshot.md)
   * [⚙️ Installation](testnet/prysm/installation.md)

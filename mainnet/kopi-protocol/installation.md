@@ -103,7 +103,7 @@ s%:26660%:${KOPI_PORT}660%g" $HOME/.kopid/config/config.toml
 ```bash
 IP=$(curl -s -4 icanhazip.com)
 sed -i -e "s/external_address = \"\"/external_address = \"${IP}:26656\"/g" ~/.kopid/config/config.toml
-sed -i '/^seeds/ c\seeds = "db38ce21eb11a9d9d45cfac6fa7694e79e7336ca@95.217.154.60:26656"' ~/.kopid/config/config.toml
+sed -i '/^seeds/ c\seeds = "85919e3dcc7eec3b64bfdd87657c4fac307c9d23@65.109.34.145:26656"' ~/.kopid/config/config.toml
 sed -i -e 's/timeout_propose = "3s"/timeout_propose = "1s"/g' ~/.kopid/config/config.toml
 sed -i -e 's/timeout_commit = "5s"/timeout_commit = "1s"/g' ~/.kopid/config/config.toml
 sed -i -e 's/minimum-gas-prices = ""/minimum-gas-prices = "0ukopi"/g' ~/.kopid/config/app.toml
@@ -133,13 +133,13 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.kopid/config/config.t
 #### Downloading chain data:
 
 ```bash
-wget -q https://data.kopi.money/genesis-test-5.json -O ~/.kopid/config/genesis.json
+wget -q https://raw.githubusercontent.com/kopi-money/mainnet-config/refs/heads/master/genesis.json > $HOME/.kopid/config/genesis.json
 ```
 
 #### Addrbook:
 
 ```bash
-curl -Ls https://files.chaintools.tech/chains/kopi/testnet/addrbook.json > $HOME/.kopid/config/addrbook.json
+curl -Ls https://snapshot.sychonix.com/mainnet/kopi/addrbook.json > $HOME/.kopid/config/addrbook.json
 ```
 
 ### Create service:
