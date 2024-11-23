@@ -133,7 +133,7 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.kopid/config/config.t
 #### Downloading chain data:
 
 ```bash
-wget -q https://raw.githubusercontent.com/kopi-money/mainnet-config/refs/heads/master/genesis.json > $HOME/.kopid/config/genesis.json
+wget -O $HOME/.kopid/config/genesis.json https://raw.githubusercontent.com/kopi-money/mainnet-config/refs/heads/master/genesis.json 
 ```
 
 #### Addrbook:

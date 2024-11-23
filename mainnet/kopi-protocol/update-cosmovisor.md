@@ -16,7 +16,7 @@ wget https://raw.githubusercontent.com/0xChicharito/Cosmovisor/refs/heads/main/k
 #### Check script content: <a href="#check-script-content" id="check-script-content"></a>
 
 ```bash
-nano init-cosmovisor.sh
+nano kopi-cosmovisor.sh
 ```
 
 ```bash
@@ -43,7 +43,7 @@ echo "export DAEMON_ALLOW_DOWNLOAD_BINARIES=true" >> $HOME/.bash_profile
 
 ```bash
 source $HOME/.bash_profile
-chmod +x init-cosmovisor.sh
+chmod +x kopi-cosmovisor.sh
 ./init-cosmovisor.sh $HOME/.kopid
 source $HOME/.bash_profile
 ```
@@ -57,12 +57,12 @@ After=network-online.target
 [Service]
 User=root
 Type=simple
-ExecStart=/root/go/bin/cosmovisor run start
+ExecStart=/root/go/bin/cosmovisor run run
 Restart=on-failure
 LimitNOFILE=65535
 Environment="DAEMON_NAME=kopid"
 Environment="DAEMON_HOME=/root/.kopid"
-Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 Environment="DAEMON_DATA_BACKUP_DIR=/root/.kopid/cosmovisor/backup"
 Environment="UNSAFE_SKIP_BACKUP=true"
@@ -79,4 +79,38 @@ sudo systemctl daemon-reload && \
 sudo systemctl enable kopid.service && \
 sudo systemctl restart kopid & sudo systemctl status kopid && \
 sudo journalctl -u kopid -f --no-hostname -o cat
+```
+
+#### Download Story binary v0.6.5.1
+
+```bash
+cd $HOME
+wget -O kopid https://github.com/kopi-money/kopi/releases/download/v0.6.5.1/kopid-v0.6.5.1-linux-amd64
+chmod +x kopid
+mkdir -p $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin
+mv kopid $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin/
+```
+
+#### Add Upgrade Information for new version
+
+```bash
+echo '{"name":"v0.6.5.1","time":"0001-01-01T00:00:00Z","height":92500}' > $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/upgrade-info.json
+```
+
+#### &#x20;**Verify the Setup**
+
+```bash
+# Check the kopi version in current folder. It should be old version is v0.6.5.1
+$HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin/kopid version
+```
+
+**Set schedule for upgrade:**
+
+{% hint style="info" %}
+To schedule an upgrade to a new client version at a specific block height, cosmovisor should already be running. Once confirmed, open a separate terminal and run:
+{% endhint %}
+
+```bash
+source $HOME/.bash_profile
+cosmovisor add-upgrade v0.6.5.1 $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin/kopid --force --upgrade-height 92500
 ```
