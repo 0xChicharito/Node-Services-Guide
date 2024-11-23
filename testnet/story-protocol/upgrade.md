@@ -39,8 +39,8 @@ cosmovisor init $(whereis -b story | awk '{print $2}')
 * Create the backup directory: Now that DAEMON\_HOME is defined, you can create the necessary directories.
 
 ```bash
-mkdir -p $DAEMON_HOME/cosmovisor/backupecho "
-export DAEMON_DATA_BACKUP_DIR=$DAEMON_HOME/cosmovisor/backup" >> $HOME/.bash_profile
+mkdir -p $DAEMON_HOME/cosmovisor/backup
+echo "export DAEMON_DATA_BACKUP_DIR=$DAEMON_HOME/cosmovisor/backup" >> $HOME/.bash_profile
 echo "export DAEMON_ALLOW_DOWNLOAD_BINARIES=false" >> $HOME/.bash_profile
 ```
 
