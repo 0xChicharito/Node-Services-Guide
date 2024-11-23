@@ -1,3 +1,22 @@
+---
+cover: ../../.gitbook/assets/1500x500.png
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # 🟢 Structs
 
 Struct is a strategic game of interstellar enterprise and empire. In the distant future, the species of the galaxy are embroiled in a race for Alpha Matter, the rare and dangerous substance that fuels galactic civilization.

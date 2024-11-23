@@ -28,7 +28,7 @@ sudo systemctl start story-geth && \
 sudo journalctl -u story-geth -f -o cat
 ```
 
-> **All node operators must upgrade to Story client version v0.130 at block height **<mark style="color:red;">**`858,000`**</mark>
+> **All node operators must upgrade to Story client version v0.130 at block height&#x20;**<mark style="color:red;">**`858,000`**</mark>
 
 **Stop node**
 
