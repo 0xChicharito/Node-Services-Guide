@@ -10,6 +10,10 @@
 ## 🚀 Testnet
 
 * [🧬 Explorer](<README (1).md>)
+* [🟢 Structs](testnet/structs/README.md)
+  * [💾 Service](testnet/structs/service.md)
+  * [⚙️ Installation](testnet/structs/installation.md)
+  * [🕹️ Command](testnet/structs/command.md)
 * [🟢 Prysm](testnet/prysm/README.md)
   * [🛰️ Service & Snapshot](testnet/prysm/service-and-snapshot.md)
   * [⚙️ Installation](testnet/prysm/installation.md)
