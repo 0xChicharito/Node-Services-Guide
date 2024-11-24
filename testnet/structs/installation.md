@@ -112,6 +112,6 @@ EOF
 # Enable and Start Service
 sudo systemctl daemon-reload &#x26;&#x26; \
 sudo systemctl enable structsd &#x26;&#x26; \
-sudo systemctl start struct &#x26; sudo systemctl status struct &#x26;&#x26; \
-sudo journalctl -u struct -f --no-hostname -o cat
+sudo systemctl start structsd &#x26; sudo systemctl status structsd &#x26;&#x26; \
+sudo journalctl -u structsd -f --no-hostname -o cat
 </code></pre>

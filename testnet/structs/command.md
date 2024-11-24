@@ -26,7 +26,7 @@ structsd keys list
 structsd keys delete wallet
 
 #Check Wallet Balance
-structsd q bank balances $(structsd keys show wallet -a)
+structsd q bank balances $WALLET_ADDRESS --node tcp://0.0.0.0:26657
 ```
 
 #### VALIDATOR MANAGEMENT <a href="#validator-management" id="validator-management"></a>
@@ -35,23 +35,27 @@ _Please adjust , MONIKER , YOUR\_KEYBASE\_ID , YOUR\_DETAILS , YOUR\_WEBSITE\_UR
 
 ```bash
 #Create Validator
-structsd tx staking create-validator \
---amount=1000000alpha \
---pubkey=$(structsd tendermint show-validator) \
---moniker=$MONIKER \
---identity="YOUR_KEYBASE_ID" \
---details="YOUR_DETAILS" \
---website="YOUR_WEBSITE_URL" \
---chain-id=$STRUCTS_CHAIN_ID \
---commission-rate=0.10 \
---commission-max-rate=0.20 \
---commission-max-change-rate=0.01 \
---min-self-delegation=10000 \
---from=wallet \
---gas-adjustment=1.5 \
---gas="auto" \
---gas-prices=10alpha \
--y
+cd $HOME
+# Create validator.json file
+echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(structsd comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
+    \"amount\": \"1alpha\",
+    \"moniker\": \"$MONIKER\",
+    \"identity\": \"9CAAFA62F3D9D33B\",
+    \"website\": \"https://node9x.com/",
+    \"security\": \"contact@node9x.com\",
+    \"details\": \"I love Structs ❤️\",
+    \"commission-rate\": \"0.1\",
+    \"commission-max-rate\": \"0.2\",
+    \"commission-max-change-rate\": \"0.01\",
+    \"min-self-delegation\": \"1\"
+}" > validator.json
+# Create a validator using the JSON configuration
+structsd tx staking create-validator $HOME/validator.json \
+  --from wallet \
+  --chain-id structstestnet-100 \
+  --node tcp://0.0.0.0:26657  \
+  --gas auto \
+  -y
 
 #Edit Validator
 structsd tx staking edit-validator \
@@ -63,11 +67,11 @@ structsd tx staking edit-validator \
 --from=wallet \
 --gas-adjustment=1.5 \
 --gas="auto" \
---gas-prices=10alpha \
+--gas-prices=0.1alpha \
 -y
 
 #Unjail Validator
-structsd tx slashing unjail --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx slashing unjail --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1alpha --node tcp://0.0.0.0:26657 -y
 
 #Check Jailed Reason
 structsd query slashing signing-info $(structsd tendermint show-validator)
