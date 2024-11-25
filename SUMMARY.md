@@ -21,6 +21,7 @@
 * [🟢 Zenrock](testnet/zenrock/README.md)
   * [💾 Service & Snapshot](testnet/zenrock/service-and-snapshot.md)
   * [⚙️ Installation](testnet/zenrock/installation.md)
+  * [⛓️ Upgrade (v5.3.4)](testnet/zenrock/upgrade-v5.3.4.md)
   * [🛰️ Command](testnet/zenrock/command.md)
   * [⚙️ Sidecar (✔️Oracle)](testnet/zenrock/sidecar-oracle.md)
     * [🔗 Upgrade](testnet/zenrock/sidecar-oracle/upgrade.md)
