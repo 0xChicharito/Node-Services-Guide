@@ -17,7 +17,8 @@ cd $HOME
 rm geth-linux-amd64
 wget https://github.com/piplabs/story-geth/releases/download/v0.10.1/geth-linux-amd64
 chmod +x geth-linux-amd64
-mv $HOME/geth-linux-amd64 $HOME/go/bin/story-gethsource $HOME/.bash_profilestory-geth version
+mv $HOME/geth-linux-amd64 $HOME/go/bin/story-gethsource $HOME/.bash_profile
+story-geth version
 ```
 
 **Start story-geth**
