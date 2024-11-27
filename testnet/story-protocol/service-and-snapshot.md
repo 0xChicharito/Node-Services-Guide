@@ -20,7 +20,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.s
 
 ## Snapshot
 
-height: **843649**, size: **64G**
+height: **847657**, size: **65G**
 
 ```bash
 # install dependencies, and disable statesync to avoid sync issues
