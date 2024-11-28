@@ -10,6 +10,8 @@
 ## 🚀 Testnet
 
 * [🧬 Explorer](<README (1).md>)
+* [🟢 Pipe Network](testnet/pipe-network/README.md)
+  * [Installation](testnet/pipe-network/installation.md)
 * [🟢 Structs](testnet/structs/README.md)
   * [💾 Service](testnet/structs/service.md)
   * [⚙️ Installation](testnet/structs/installation.md)
