@@ -4,7 +4,7 @@
 
 ```bash
 cd $HOME
-wget https://github.com/zenrocklabs/zrchain/releases/download/v5.3.4/zenrockd.zip
+wget https://github.com/Zenrock-Foundation/zrchain/releases/download/v5.4.0/zenrockd.zip
 unzip zenrockd.zip
 rm zenrockd.zip
 chmod +x $HOME/zenrockd
