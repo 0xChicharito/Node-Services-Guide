@@ -87,6 +87,23 @@ sudo cp $HOME/zenrockd $HOME/.zrchain/cosmovisor/upgrades/v5.5.0/bin/zenrockd
 echo '{"name":"v5beta2","time":"0001-01-01T00:00:00Z","height":1259000}' > $HOME/.zrchain/cosmovisor/upgrades/v5.5.0/upgrade-info.json
 ```
 
+### **Verify the Setup**
+
+```bash
+# Check current symlink
+ls -l /root/.zrchain/cosmovisor/current
+```
+
+```bash
+# Check the zenrock version in genesis folder.
+$HOME/.zrchain/cosmovisor/genesis/bin/zenrockd version
+```
+
+```bash
+# Check the new binary version in upgrade folder. It should be new version v0.13.0
+$HOME/.zrchain/cosmovisor/upgrades/v5.5.0/bin/zenrockd version
+```
+
 ### Check upgrade info
 
 ```bash
@@ -135,6 +152,3 @@ source $HOME/.bash_profile
 cosmovisor add-upgrade v5.5.0 $HOME/.zrchain/cosmovisor/upgrades/v5.5.0/bin/zenrockd --force --upgrade-height 1259000
 ```
 
-{% hint style="info" %}
-
-{% endhint %}
