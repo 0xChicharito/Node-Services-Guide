@@ -61,7 +61,7 @@ source $HOME/.bash_profile
 ### **Create upgrades folder**
 
 ```bash
-mkdir -p HOME/.zrchain/cosmovisor/genesis/bin
+mkdir -p $HOME/.zrchain/cosmovisor/genesis/bin
 mkdir -p $HOME/.zrchain/cosmovisor/upgrades/v5.5.0/bin
 ```
 
