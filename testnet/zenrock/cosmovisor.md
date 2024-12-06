@@ -84,7 +84,7 @@ sudo cp $HOME/zenrockd $HOME/.zrchain/cosmovisor/upgrades/v5.5.0/bin/zenrockd
 * Add Upgrade Information for new version
 
 ```bash
-cosmovisor add-upgrade v5.5.0 $HOME/.zrchain/cosmovisor/upgrades/v5.5.0/bin/zenrockd --force --upgrade-height 1259000
+echo '{"name":"v5beta2","time":"0001-01-01T00:00:00Z","height":1259000}' > $HOME/.zrchain/cosmovisor/upgrades/v5.5.0/upgrade-info.json
 ```
 
 ### Check upgrade info
