@@ -37,12 +37,12 @@ sudo journalctl -u story-geth -f -o cat
 sudo systemctl stop story
 ```
 
-**Download new binary v0.13.0**
+**Download new binary v0.13.1**
 
 ```bash
 cd $HOME
 rm story-linux-amd64
-wget https://github.com/piplabs/story/releases/download/v0.13.0/story-linux-amd64
+wget https://github.com/piplabs/story/releases/download/v0.13.1/story-linux-amd64
 ```
 
 **Replace new binary version**
@@ -78,7 +78,7 @@ cosmovisor version
 **Create upgrades folder**
 
 ```bash
-mkdir -p $HOME/.story/story/cosmovisor/upgrades/v0.13.0/bin
+mkdir -p $HOME/.story/story/cosmovisor/upgrades/v0.13.1/bin
 ```
 
 * Download Story binary v0.13.0
@@ -87,7 +87,7 @@ mkdir -p $HOME/.story/story/cosmovisor/upgrades/v0.13.0/bin
 #download binay
 cd $HOME
 rm story-linux-amd64
-wget https://github.com/piplabs/story/releases/download/v0.13.0/story-linux-amd64
+wget https://github.com/piplabs/story/releases/download/v0.13.1/story-linux-amd64
 chmod +x story-linux-amd64
 ```
 
@@ -95,13 +95,13 @@ chmod +x story-linux-amd64
 
 ```bash
 # Copy new version binary to upgrade folder
-sudo cp $HOME/story-linux-amd64 $HOME/.story/story/cosmovisor/upgrades/v0.13.0/bin/story
+sudo cp $HOME/story-linux-amd64 $HOME/.story/story/cosmovisor/upgrades/v0.13.1/bin/story
 ```
 
 * Add Upgrade Information for new version
 
 ```bash
-echo '{"name":"v0.13.0","time":"0001-01-01T00:00:00Z","height":858000}' > $HOME/.story/story/cosmovisor/upgrades/v0.13.0/upgrade-info.json
+echo '{"name":"v0.13.1","time":"0001-01-01T00:00:00Z","height":858000}' > $HOME/.story/story/cosmovisor/upgrades/v0.13.0/upgrade-info.json
 ```
 
 **5. Verify the Setup**
