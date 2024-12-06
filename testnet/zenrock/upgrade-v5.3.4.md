@@ -1,10 +1,14 @@
-# ⛓️ Upgrade (v5.3.4)
+# ⛓️ Upgrade (v5.5.0)
 
 ### Manual upgrade <a href="#manual" id="manual"></a>
 
+{% hint style="info" %}
+Upgrade height: [1259000](https://testnet.itrocket.net/zenrock/block/1259000). Please don\`t upgrade before the specified height
+{% endhint %}
+
 ```bash
 cd $HOME
-wget https://github.com/Zenrock-Foundation/zrchain/releases/download/v5.4.0/zenrockd.zip
+wget https://github.com/Zenrock-Foundation/zrchain/releases/download/v5.5.0/zenrockd.zip
 unzip zenrockd.zip
 rm zenrockd.zip
 chmod +x $HOME/zenrockd
