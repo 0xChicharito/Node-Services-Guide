@@ -1,11 +1,12 @@
 # Table of contents
 
-* [🏆 MAINNET](README.md)
-  * [🟢 Kopi Protocol](mainnet/kopi-protocol/README.md)
-    * [💾 Service & Snapshot](mainnet/kopi-protocol/service-and-snapshot.md)
-    * [⚙️ Installation](mainnet/kopi-protocol/installation.md)
-    * [🪢 Update Cosmovisor](mainnet/kopi-protocol/update-cosmovisor.md)
-    * [🛰️ Command](mainnet/kopi-protocol/command.md)
+## 🍄 MAINNET
+
+* [🟢 Kopi Protocol](README.md)
+  * [💾 Service & Snapshot](mainnet/kopi-protocol/service-and-snapshot.md)
+  * [⚙️ Installation](mainnet/kopi-protocol/installation.md)
+  * [🪢 Update Cosmovisor](mainnet/kopi-protocol/update-cosmovisor.md)
+  * [🛰️ Command](mainnet/kopi-protocol/command.md)
 
 ## 🚀 Testnet
 
