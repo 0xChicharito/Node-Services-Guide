@@ -16,11 +16,12 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.p
 
 height: **108204**, size: **459M**
 
-height: **108204**, size: **459M**
-udo systemctl stop pellcored
+```bash
+sudo systemctl stop pellcored 
 cp $HOME/.pellcored/data/priv_validator_state.json $HOME/.pellcored/priv_validator_state.json.backup 
 rm -rf $HOME/.pellcored/data $HOME/.pellcored/wasm 
 curl https://snapshot.node9x.com/pell_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.pellcored 
 mv $HOME/.pellcored/priv_validator_state.json.backup $HOME/.pellcored/data/priv_validator_state.json 
 sudo systemctl restart pellcored && sudo journalctl -u pellcored -f
 ```
+
