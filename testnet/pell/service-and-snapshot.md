@@ -16,7 +16,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.p
 
 height: **108204**, size: **459M**
 
-```bash
+height: **108204**, size: **459M**
 udo systemctl stop pellcored
 cp $HOME/.pellcored/data/priv_validator_state.json $HOME/.pellcored/priv_validator_state.json.backup 
 rm -rf $HOME/.pellcored/data $HOME/.pellcored/wasm 
