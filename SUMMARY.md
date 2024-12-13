@@ -16,6 +16,7 @@
 * [🟢 Pell](testnet/pell/README.md)
   * [💾 Service & Snapshot](testnet/pell/service-and-snapshot.md)
   * [⚙️ Installation](testnet/pell/installation.md)
+  * [⛓️ Upgrade](testnet/pell/upgrade.md)
 * [🟢 Structs](testnet/structs/README.md)
   * [💾 Service](testnet/structs/service.md)
   * [⚙️ Installation](testnet/structs/installation.md)

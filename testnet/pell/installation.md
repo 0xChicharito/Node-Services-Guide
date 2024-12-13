@@ -27,7 +27,11 @@ echo "export PELL_PORT="57"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
 # download binary
-#not available yet
+cd $HOME
+wget -O pellcored https://github.com/0xPellNetwork/network-config/releases/download/v1.0.0-ignite-186-genesis/pellcored-v1.0.0-linux-amd64
+chmod +x $HOME/pellcored
+mv $HOME/pellcored $HOME/go/bin/
+
 WASMVM_VERSION=v2.1.2
 export LD_LIBRARY_PATH=~/.pellcored/lib
 mkdir -p $LD_LIBRARY_PATH

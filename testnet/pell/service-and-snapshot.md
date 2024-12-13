@@ -2,9 +2,7 @@
 
 ### Public Endpoint <a href="#public-endpoint" id="public-endpoint"></a>
 
-| RPC | [https://pell-rpc.node9x.com/](https://pell-rpc.node9x.com/) |
-| --- | ------------------------------------------------------------ |
-| API | [https://pell-api.node9x.com/](https://pell-api.node9x.com/) |
+<table data-header-hidden><thead><tr><th width="134"></th><th></th></tr></thead><tbody><tr><td>RPC</td><td><a href="https://pell-rpc.node9x.com/">https://pell-rpc.node9x.com/</a></td></tr><tr><td>API</td><td><a href="https://pell-api.node9x.com/">https://pell-api.node9x.com/</a></td></tr></tbody></table>
 
 ### Live Peers <a href="#live-peers" id="live-peers"></a>
 
