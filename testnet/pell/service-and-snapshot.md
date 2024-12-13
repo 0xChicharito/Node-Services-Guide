@@ -24,4 +24,3 @@ curl https://snapshot.node9x.com/pell_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C
 mv $HOME/.pellcored/priv_validator_state.json.backup $HOME/.pellcored/data/priv_validator_state.json 
 sudo systemctl restart pellcored && sudo journalctl -u pellcored -f
 ```
-
