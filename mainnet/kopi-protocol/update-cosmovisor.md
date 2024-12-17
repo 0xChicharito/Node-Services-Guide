@@ -113,7 +113,7 @@ Restart=on-failure
 LimitNOFILE=65535
 Environment="DAEMON_NAME=kopid"
 Environment="DAEMON_HOME=/root/.kopid"
-Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 Environment="DAEMON_DATA_BACKUP_DIR=/root/.kopid/cosmovisor/backup"
 Environment="UNSAFE_SKIP_BACKUP=true"
