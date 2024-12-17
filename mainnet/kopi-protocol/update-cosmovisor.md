@@ -50,7 +50,7 @@ echo "export DAEMON_ALLOW_DOWNLOAD_BINARIES=true" >> $HOME/.bash_profile
 ```bash
 source $HOME/.bash_profile
 chmod +x kopi-cosmovisor.sh
-./init-cosmovisor.sh $HOME/.kopid
+./kopi-cosmovisor.sh $HOME/.kopid
 source $HOME/.bash_profile
 ```
 
