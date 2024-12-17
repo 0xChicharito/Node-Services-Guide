@@ -237,3 +237,9 @@ kopid q staking validators -oj --limit=2000 | jq '.validators[] | select(.status
 ```bash
 kopid q slashing signing-info $(kopid tendermint show-validator)
 ```
+
+#### Government
+
+```bash
+kopid tx gov vote 25 yes --from Chicharito --chain-id luwak-1 --gas-adjustment 1.4 --gas auto --gas-prices 0ukopi -y
+```

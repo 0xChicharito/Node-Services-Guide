@@ -1,4 +1,4 @@
-# 🪢 Update Cosmovisor
+# 🪢 Cosmovisor
 
 **Stop node**
 
@@ -48,6 +48,57 @@ chmod +x kopi-cosmovisor.sh
 source $HOME/.bash_profile
 ```
 
+#### **Create upgrades folder** <a href="#create-upgrades-folder" id="create-upgrades-folder"></a>
+
+```bash
+mkdir -p $HOME/.kopid/cosmovisor/genesis/bin
+mkdir -p $HOME/.kopid/cosmovisor/upgrades/v0_6_5_2/bin
+```
+
+* **Stop node**
+
+```bash
+sudo systemctl stop kopid
+```
+
+#### **Download binary** v0.6.5.2 <a href="#download-binary-v5.5.0" id="download-binary-v5.5.0"></a>
+
+```bash
+cd $HOME
+wget -O kopid https://github.com/kopi-money/kopi/releases/download/v0.6.5.2/kopid-v0.6.5.2-linux-amd64-static
+chmod +x $HOME/kopid
+sudo cp $HOME/kopid $HOME/.kopid/cosmovisor/upgrades/v0_6_5_2/bin/kopid
+```
+
+* Add Upgrade Information for new version
+
+```bash
+echo '{"name":"v0_6_5_2","time":"0001-01-01T00:00:00Z","height":1350000}' > $HOME/.kopid/cosmovisor/upgrades/v0.6.5.2/upgrade-info.json
+```
+
+#### **Verify the Setup** <a href="#verify-the-setup" id="verify-the-setup"></a>
+
+```bash
+# Check current symlink
+ls -l /root/.kopid/cosmovisor/current
+```
+
+```bash
+# Check the zenrock version in genesis folder.
+$HOME/.kopid/cosmovisor/genesis/bin/kopid version
+```
+
+```bash
+# Check the new binary version in upgrade folder. It should be new version v0.13.0
+$HOME/.kopid/cosmovisor/upgrades/v0_6_5_2/bin/kopid version
+```
+
+#### Check upgrade info <a href="#check-upgrade-info" id="check-upgrade-info"></a>
+
+```
+cat $HOME/.kopid/cosmovisor/upgrades/v0_6_5_2/upgrade-info.json
+```
+
 ```bash
 sudo tee /etc/systemd/system/kopid.service > /dev/null << EOF
 [Unit]
@@ -81,29 +132,6 @@ sudo systemctl restart kopid & sudo systemctl status kopid && \
 sudo journalctl -u kopid -f --no-hostname -o cat
 ```
 
-#### Download Story binary v0.6.5.1
-
-```bash
-cd $HOME
-wget -O kopid https://github.com/kopi-money/kopi/releases/download/v0.6.5.1/kopid-v0.6.5.1-linux-amd64
-chmod +x kopid
-mkdir -p $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin
-mv kopid $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin/
-```
-
-#### Add Upgrade Information for new version
-
-```bash
-echo '{"name":"v0.6.5.1","time":"0001-01-01T00:00:00Z","height":92500}' > $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/upgrade-info.json
-```
-
-#### &#x20;**Verify the Setup**
-
-```bash
-# Check the kopi version in current folder. It should be old version is v0.6.5.1
-$HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin/kopid version
-```
-
 **Set schedule for upgrade:**
 
 {% hint style="info" %}
@@ -112,5 +140,5 @@ To schedule an upgrade to a new client version at a specific block height, cosmo
 
 ```bash
 source $HOME/.bash_profile
-cosmovisor add-upgrade v0.6.5.1 $HOME/.kopid/cosmovisor/upgrades/v0.6.5.1/bin/kopid --force --upgrade-height 92500
+cosmovisor add-upgrade v0_6_5_2 $HOME/.kopid/cosmovisor/upgrades/v0_6_5_2/bin/kopid --force --upgrade-height 1350000
 ```

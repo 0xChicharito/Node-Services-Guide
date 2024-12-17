@@ -5,7 +5,8 @@
 * [🟢 Kopi Protocol](README.md)
   * [💾 Service & Snapshot](mainnet/kopi-protocol/service-and-snapshot.md)
   * [⚙️ Installation](mainnet/kopi-protocol/installation.md)
-  * [🪢 Update Cosmovisor](mainnet/kopi-protocol/update-cosmovisor.md)
+  * [⛓️ Upgrade (v0.6.5.2)](mainnet/readme/upgrade-v0.6.5.2.md)
+  * [🪢 Cosmovisor](mainnet/kopi-protocol/update-cosmovisor.md)
   * [🛰️ Command](mainnet/kopi-protocol/command.md)
 
 ## 🚀 Testnet
