@@ -1,4 +1,4 @@
-# Command
+# 🕹️ Command
 
 Withdraw all rewards
 
