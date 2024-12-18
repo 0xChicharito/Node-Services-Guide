@@ -167,13 +167,13 @@ done
 ```bash
 cd $HOME
 # Create validator.json file
-echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(pellcored comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
-    \"amount\": \"1000000pell\",
-    \"moniker\": \"test\",
-    \"identity\": \"\",
-    \"website\": \"\",
-    \"security\": \"\",
-    \"details\": \"I love blockchain ❤️\",
+echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(pellcored query status | jq -r '.validator_info.pub_key.value')\"},
+    \"amount\": \"1pell\",
+    \"moniker\": \"Chicharito | Node9X\",
+    \"identity\": \"9CAAFA62F3D9D33B\",
+    \"website\": \"https://node9x.com/\",
+    \"security\": \"contact@node9x.com\",
+    \"details\": \"I love Pell ❤️ | Telegram: @Oxchicharito | Discord: 0xchicharito | Twitter: @0xchicharito | Email: contact@node9x.com\",
     \"commission-rate\": \"0.1\",
     \"commission-max-rate\": \"0.2\",
     \"commission-max-change-rate\": \"0.01\",
@@ -181,10 +181,12 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(pellc
 }" > validator.json
 # Create a validator using the JSON configuration
 pellcored tx staking create-validator validator.json \
-    --from $WALLET \
-    --chain-id ignite_186-1 \
-	--gas auto --gas-adjustment 1.5
-	
+  --from "Chicharito" \
+  --chain-id=ignite_186-1 \
+  --fees=0.000001pell \
+  --gas=1000000 \
+  -y
+
 ```
 
 ### Delete node <a href="#delete" id="delete"></a>
