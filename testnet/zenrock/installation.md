@@ -30,15 +30,16 @@ source $HOME/.bash_profile
 # set vars
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
 echo "export MONIKER="test"" >> $HOME/.bash_profile
-echo "export ZENROCK_CHAIN_ID="gardia-2"" >> $HOME/.bash_profile
+echo "export ZENROCK_CHAIN_ID="gardia-3"" >> $HOME/.bash_profile
 echo "export ZENROCK_PORT="56"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
 # download binary
-cd $HOME
-curl -o zenrockd https://releases.gardia.zenrocklabs.io/zenrockd-latest
+wget -O zenrockd.zip https://github.com/Zenrock-Foundation/zrchain/releases/download/v5.5.0/zenrockd.zip
+unzip zenrockd.zip
+rm zenrockd.zip
 chmod +x $HOME/zenrockd
-mv $HOME/zenrockd $HOME/go/bin/
+sudo mv $HOME/zenrockd $HOME/go/bin/
 
 # config and init app
 zenrockd init $MONIKER --chain-id $ZENROCK_CHAIN_ID
