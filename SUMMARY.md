@@ -12,6 +12,8 @@
 ## 🚀 Testnet
 
 * [🧬 Explorer](<README (1).md>)
+* [🟢 XRPL EVM](testnet/xrpl-evm/README.md)
+  * [⚙️ Installation](testnet/xrpl-evm/installation.md)
 * [🟢 Pipe Network](testnet/pipe-network/README.md)
   * [Installation](testnet/pipe-network/installation.md)
 * [🟢 Pell](testnet/pell/README.md)
