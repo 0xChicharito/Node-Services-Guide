@@ -1,7 +1,7 @@
 # ⛓️ Upgrade (v11)
 
 {% hint style="info" %}
-Don't upgrade before heigh&#x74;**`394350`**
+Don't upgrade before heigh&#x74;**`3943500`**
 {% endhint %}
 
 ```bash
