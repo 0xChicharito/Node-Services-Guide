@@ -1,4 +1,8 @@
-# ⛓️ Upgrade (v0.6.5.2)
+# ⛓️ Upgrade (v11)
+
+{% hint style="info" %}
+Don't upgrade before heigh&#x74;**`394350`**
+{% endhint %}
 
 ```bash
 sudo systemctl stop kopid
