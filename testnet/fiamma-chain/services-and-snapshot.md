@@ -27,7 +27,7 @@ curl -sS http://localhost:(whatever you typed in custom_port)657/net_info | jq -
 ```
 
 ### Latest Snapshot
-height: **1514625**, size: **282M**
+height: **1517464**, size: **283M**
 ```bash
 sudo systemctl stop fiammad
 cp $HOME/.fiamma/data/priv_validator_state.json $HOME/.fiamma/priv_validator_state.json.backup
