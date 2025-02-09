@@ -17,6 +17,7 @@
   * [🕹️ Command](testnet/xrpl-evm/command.md)
 * [🟢 Pipe Network](testnet/pipe-network/README.md)
   * [Installation](testnet/pipe-network/installation.md)
+  * [Upgrade](testnet/pipe-network/upgrade.md)
 * [🟢 Pell](testnet/pell/README.md)
   * [💾 Service & Snapshot](testnet/pell/service-and-snapshot.md)
   * [⚙️ Installation](testnet/pell/installation.md)
