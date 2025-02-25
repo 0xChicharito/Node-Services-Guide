@@ -109,13 +109,6 @@ LimitNOFILE=65535
 WantedBy=multi-user.target
 EOF
 
-# reset and download snapshot
-if curl -s --head curl https://share102.utsa.tech/native/native_testnet.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://share102.utsa.tech/native/native_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.gonatived
-    else
-  echo "no snapshot founded"
-fi
-
 # enable and start service
 systemctl daemon-reload
 systemctl enable gonatived
@@ -149,10 +142,10 @@ gonatived query bank balances $WALLET_ADDRESS
 
 ```bash
 #!/bin/bash
-rpc_port=$(grep -m 1 -oP '^laddr = "\K[^"]+' "$HOME/.prysm/config/config.toml" | cut -d ':' -f 3)
+rpc_port=$(grep -m 1 -oP '^laddr = "\K[^"]+' "$HOME/.gonative/config/config.toml" | cut -d ':' -f 3)
 while true; do
   local_height=$(curl -s localhost:$rpc_port/status | jq -r '.result.sync_info.latest_block_height')
-  network_height=$(curl -s https://prysm-testnet-rpc.itrocket.net/status | jq -r '.result.sync_info.latest_block_height')
+  network_height=$(curl -s https://t-native.rpc.utsa.tech/status | jq -r '.result.sync_info.latest_block_height')
 
   if ! [[ "$local_height" =~ ^[0-9]+$ ]] || ! [[ "$network_height" =~ ^[0-9]+$ ]]; then
     echo -e "\033[1;31mError: Invalid block height data. Retrying...\033[0m"
@@ -176,8 +169,8 @@ done
 ```bash
 cd $HOME
 # Create validator.json file
-echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(prysmd comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
-    \"amount\": \"1000000uprysm\",
+echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(gonatived comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
+    \"amount\": \"1000000untiv\",
     \"moniker\": \"\",
     \"identity\": \"\",
     \"website\": \"\",
@@ -189,9 +182,9 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(prysm
     \"min-self-delegation\": \"1\"
 }" > validator.json
 # Create a validator using the JSON configuration
-prysmd tx staking create-validator validator.json \
+gonatived tx staking create-validator validator.json \
     --from $WALLET \
-    --chain-id prysm-devnet-1 \
+    --chain-id native-t1 \
     --gas auto --gas-adjustment 1.5 \
     -y
 	
