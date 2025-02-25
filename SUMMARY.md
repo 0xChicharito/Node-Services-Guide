@@ -12,6 +12,8 @@
 ## 🚀 Testnet
 
 * [🧬 Explorer](<README (1).md>)
+* [🟢 Native](testnet/native/README.md)
+  * [⚙️ Installation](testnet/native/installation.md)
 * [🟢 XRPL EVM](testnet/xrpl-evm/README.md)
   * [⚙️ Installation](testnet/xrpl-evm/installation.md)
   * [🕹️ Command](testnet/xrpl-evm/command.md)
