@@ -153,7 +153,7 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(exrpd
 # Create a validator using the JSON configuration
 exrpd tx staking create-validator validator.json \
     --from $WALLET \
-    --chain-id exrp_1440002-1 \
+    --chain-id xrplevm_1449000-1 \
 	--gas auto --gas-adjustment 1.5
 	
 ```
