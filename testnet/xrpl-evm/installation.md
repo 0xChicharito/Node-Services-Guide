@@ -3,7 +3,7 @@
 ```bash
 # install go, if needed
 cd $HOME
-VER="1.21.3"
+VER="1.23.4"
 wget "https://golang.org/dl/go$VER.linux-amd64.tar.gz"
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf "go$VER.linux-amd64.tar.gz"
@@ -16,7 +16,7 @@ source $HOME/.bash_profile
 # set vars
 echo "export WALLET="wallet"" >> $HOME/.bash_profile
 echo "export MONIKER="test"" >> $HOME/.bash_profile
-echo "export XRPL_CHAIN_ID="exrp_1440002-1"" >> $HOME/.bash_profile
+echo "export XRPL_CHAIN_ID="xrplevm_1449000-1"" >> $HOME/.bash_profile
 echo "export XRPL_PORT="13"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
@@ -28,19 +28,28 @@ cd xrp
 git checkout v6.0.0
 make install
 
+#Install WASMVM
+export WASMVM_VERSION=v2.1.2
+export LD_LIBRARY_PATH=$HOME/.exrpd/lib
+mkdir -p $LD_LIBRARY_PATH
+wget "https://github.com/CosmWasm/wasmvm/releases/download/$WASMVM_VERSION/libwasmvm.$(uname -m).so" -O "$LD_LIBRARY_PATH/libwasmvm.$(uname -m).so"
+echo "export LD_LIBRARY_PATH=$HOME/.exrpd/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+source ~/.bashrc
+
 # config and init app
 exrpd config node tcp://localhost:${XRPL_PORT}657
 exrpd config keyring-backend os
-exrpd config chain-id exrp_1440002-1
-exrpd init "test" --chain-id exrp_1440002-1
+exrpd config chain-id xrplevm_1449000-1
+exrpd init "test" --chain-id xrplevm_1449000-1
 
 # download genesis and addrbook
-wget -O $HOME/.exrpd/config/genesis.json https://server-2.itrocket.net/testnet/xrpl/genesis.json
-wget -O $HOME/.exrpd/config/addrbook.json  https://server-2.itrocket.net/testnet/xrpl/addrbook.json
-
+wget -O $HOME/.exrpd/config/genesis.json https://snapshots.polkachu.com/testnet-genesis/xrp/genesis.json
+wget -O $HOME/.exrpd/config/addrbook.json https://snapshots.polkachu.com/testnet-addrbook/xrp/addrbook.json
 # set seeds and peers
-SEEDS="6a271a9b7d07393a1521b1c7386a9fa9147a1762@xrpl-testnet-seed.itrocket.net:16656"
-PEERS="166f7e48e1c756cc663fee5be96ab2bbdb4db970@xrpl-testnet-peer.itrocket.net:13656,d2f2a052eb0106cf03d2189482983efcc372a92a@116.202.174.189:26656,5c46af079f2acfb54f3805f302fd94a7089cfc03@31.220.87.80:26656,45ce5323085fa1a05771f1c10ac22976e44e3ef0@195.154.91.82:26656,e60a252c148b17122107eba50b4d1b16b7100fa7@23.129.20.120:30056,6a66cdc4b234f57fc5357c9584b20c4149b63efe@52.205.83.216:26656"
+SEEDS=""
+PEERS=972f58b459debdbaa92fd8479d89128b653d7eb8@65.21.29.250:3640,f8452f28064e9cf9ef1df0c055ac0280576143b6@65.108.69.56:26696,b96d3e221688108e40706d51cca59d80a60f67e9@65.21.200.7:3640,1881f3f71603b7eba91b8b84148834c7322122be@45.77.195.1:26656,6c5b34685a0c1956bde097914e42bc537f5ca5c7@79.137.70.143:26646
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.exrpd/config/config.toml
+
 sed -i -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*seeds *=.*/seeds = \"$SEEDS\"/}" \
        -e "/^\[p2p\]/,/^\[/{s/^[[:space:]]*persistent_peers *=.*/persistent_peers = \"$PEERS\"/}" $HOME/.exrpd/config/config.toml
 
@@ -89,8 +98,8 @@ EOF
 
 # reset and download snapshot
 exrpd tendermint unsafe-reset-all --home $HOME/.exrpd
-if curl -s --head curl https://server-2.itrocket.net/testnet/xrpl/xrpl_2025-01-26_14131007_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl https://server-2.itrocket.net/testnet/xrpl/xrpl_2025-01-26_14131007_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.exrpd
+if curl -s --head curl https://snapshots.polkachu.com/testnet-snapshots/xrp/xrp_243913.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl https://snapshots.polkachu.com/testnet-snapshots/xrp/xrp_243913.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.exrpd
     else
   echo "no snapshot found"
 fi
