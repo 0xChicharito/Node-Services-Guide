@@ -65,7 +65,7 @@ zenrockd tx validation create-validator <(cat <<EOF
 }
 EOF
 ) \
---chain-id gardia-2 \
+--chain-id gardia-4 \
 --from wallet \
 --gas-adjustment 1.4 \
 --gas auto \
@@ -81,7 +81,7 @@ zenrockd tx validation edit-validator \
 --identity "YOUR_KEYBASE_ID" \
 --details "YOUR_DETAILS" \
 --website "YOUR_WEBSITE_URL" \
---chain-id gardia-2 \
+--chain-id gardia-4 \
 --commission-rate 0.05 \
 --from wallet \
 --gas-adjustment 1.4 \
@@ -93,7 +93,7 @@ zenrockd tx validation edit-validator \
 ## **Unjail validator**
 
 ```bash
-zenrockd tx slashing unjail --from wallet --chain-id gardia-2 --gas-prices 30urock -y
+zenrockd tx slashing unjail --from wallet --chain-id gardia-4 --gas-prices 30urock -y
 ```
 
 ## **Jail reason**
@@ -181,19 +181,19 @@ zenrockd query gov proposal 1
 ## **Vote ‘Yes’**
 
 ```bash
-zenrockd tx gov vote 1 yes --from wallet --chain-id gardia-2 --gas-prices 30urock -y
+zenrockd tx gov vote 1 yes --from wallet --chain-id gardia-4 --gas-prices 500000urock -y
 ```
 
 ## **Vote ‘No’**
 
 ```bash
-zenrockd tx gov vote 1 no --from wallet --chain-id gardia-2 --gas-prices 30urock -y
+zenrockd tx gov vote 1 no --from wallet --chain-id gardia-4 --gas-prices 500000urock -y
 ```
 
 ## **Vote ‘Abstain’**
 
 ```bash
-zenrockd tx gov vote 1 abstain --from wallet --chain-id gardia-2 --gas-prices 30urock -y
+zenrockd tx gov vote 1 abstain --from wallet --chain-id gardia-4 --gas-prices 30urock -y
 ```
 
 ## **Vote ‘NoWithVeto’**

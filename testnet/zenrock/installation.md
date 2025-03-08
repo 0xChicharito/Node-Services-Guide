@@ -193,15 +193,15 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(zenro
 zenrockd tx validation create-validator /root/validator.json \
     --node https://rpc.gardia.zenrocklabs.io \
     --gas-prices 30urock \
-    --from my-validator \
-    --chain-id gardia-2
+    --from $Wallet \
+    --chain-id gardia-4
 	
 ```
 
 ### Delegate to your node <a href="#delete" id="delete"></a>
 
 ```bash
-zenrockd tx validation delegate $(zenrockd keys show $Wallet --bech val -a) 1000000urock --from $Wallet --chain-id gardia-2 --fees 30urock -y 
+zenrockd tx validation delegate $(zenrockd keys show $Wallet --bech val -a) 1000000urock --from $Wallet --chain-id gardia-4 --fees 30urock -y 
 ```
 
 ### Delete node <a href="#delete" id="delete"></a>
