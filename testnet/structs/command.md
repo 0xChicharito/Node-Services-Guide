@@ -81,22 +81,22 @@ structsd query slashing signing-info $(structsd tendermint show-validator)
 
 ```bash
 #Withdraw Rewards
-structsd tx distribution withdraw-all-rewards --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx distribution withdraw-all-rewards --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1alpha -y
 
 #Withdraw Rewards with Comission
-structsd tx distribution withdraw-rewards $(structsd keys show wallet --bech val -a) --commission --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
+structsd tx distribution withdraw-rewards $(structsd keys show wallet --bech val -a) --commission --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1ualpha -y
 
 #Delegate Token to your own validator
-structsd tx staking delegate $(structsd keys show wallet --bech val -a) 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
+structsd tx staking delegate $(structsd keys show wallet --bech val -a) 1000000ualpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1ualpha -y
 
 #Delegate Token to other validator
-structsd tx staking redelegate $(structsd keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
+structsd tx staking redelegate $(structsd keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000ualpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1ualpha -y
 
 #Unbond Token from your validator
-structsd tx staking unbond $(structsd keys show wallet --bech val -a) 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
+structsd tx staking unbond $(structsd keys show wallet --bech val -a) 1000000ualpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1ualpha -y
 
 #Send Token to another wallet
-structsd tx bank send wallet <TO_WALLET_ADDRESS> 1000000ualpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
+structsd tx bank send wallet <TO_WALLET_ADDRESS> 1000000ualpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1ualpha -y
 ```
 
 #### GOVERNANCE <a href="#governance" id="governance"></a>
