@@ -38,7 +38,7 @@ _Please adjust , MONIKER , YOUR\_KEYBASE\_ID , YOUR\_DETAILS , YOUR\_WEBSITE\_UR
 cd $HOME
 # Create validator.json file
 echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(structsd comet show-validator | grep -Po '\"key\":\s*\"\K[^"]*')\"},
-    \"amount\": \"1alpha\",
+    \"amount\": \"1ualpha\",
     \"moniker\": \"$MONIKER\",
     \"identity\": \"9CAAFA62F3D9D33B\",
     \"website\": \"https://node9x.com/",
@@ -52,7 +52,7 @@ echo "{\"pubkey\":{\"@type\":\"/cosmos.crypto.ed25519.PubKey\",\"key\":\"$(struc
 # Create a validator using the JSON configuration
 structsd tx staking create-validator $HOME/validator.json \
   --from wallet \
-  --chain-id structstestnet-100 \
+  --chain-id structstestnet-101 \
   --node tcp://0.0.0.0:26657  \
   --gas auto \
   -y
@@ -67,11 +67,11 @@ structsd tx staking edit-validator \
 --from=wallet \
 --gas-adjustment=1.5 \
 --gas="auto" \
---gas-prices=0.1alpha \
+--gas-prices=0.1ualpha \
 -y
 
 #Unjail Validator
-structsd tx slashing unjail --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1alpha --node tcp://0.0.0.0:26657 -y
+structsd tx slashing unjail --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 0.1ualpha --node tcp://0.0.0.0:26657 -y
 
 #Check Jailed Reason
 structsd query slashing signing-info $(structsd tendermint show-validator)
@@ -84,26 +84,26 @@ structsd query slashing signing-info $(structsd tendermint show-validator)
 structsd tx distribution withdraw-all-rewards --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
 
 #Withdraw Rewards with Comission
-structsd tx distribution withdraw-rewards $(structsd keys show wallet --bech val -a) --commission --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx distribution withdraw-rewards $(structsd keys show wallet --bech val -a) --commission --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
 
 #Delegate Token to your own validator
-structsd tx staking delegate $(structsd keys show wallet --bech val -a) 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx staking delegate $(structsd keys show wallet --bech val -a) 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
 
 #Delegate Token to other validator
-structsd tx staking redelegate $(structsd keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx staking redelegate $(structsd keys show wallet --bech val -a) <TO_VALOPER_ADDRESS> 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
 
 #Unbond Token from your validator
-structsd tx staking unbond $(structsd keys show wallet --bech val -a) 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx staking unbond $(structsd keys show wallet --bech val -a) 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
 
 #Send Token to another wallet
-structsd tx bank send wallet <TO_WALLET_ADDRESS> 1000000alpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx bank send wallet <TO_WALLET_ADDRESS> 1000000ualpha --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
 ```
 
 #### GOVERNANCE <a href="#governance" id="governance"></a>
 
 ```bash
 #Vote You can change the value of yes to no,abstain,nowithveto
-structsd tx gov vote 1 yes --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10alpha -y
+structsd tx gov vote 1 yes --from wallet --chain-id $STRUCTS_CHAIN_ID --gas-adjustment 1.5 --gas auto --gas-prices 10ualpha -y
 
 #List all proposals
 structsd query gov proposals
@@ -112,10 +112,10 @@ structsd query gov proposals
 structsd tx gov submit-proposal \
 --title="Title" \
 --description="Description" \
---deposit=10000000alpha \
+--deposit=10000000ualpha \
 --type="Text" \
 --from=wallet \
---gas-prices=10alpha \ 
+--gas-prices=10ualpha \ 
 --gas-adjustment=1.5 \
 --gas="auto" \
 -y 

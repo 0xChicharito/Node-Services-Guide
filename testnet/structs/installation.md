@@ -24,7 +24,7 @@ go version
 </strong># Set Vars
 <strong>MONIKER=&#x3C;YOUR_MONIKER_NAME_GOES_HERE>
 </strong>echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile
-echo "export STRUCTS_CHAIN_ID="structstestnet-100"" >> $HOME/.bash_profile
+echo "export STRUCTS_CHAIN_ID="structstestnet-101"" >> $HOME/.bash_profile
 echo "export STRUCTS_PORT="25"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
@@ -37,9 +37,10 @@ ignite version
 
 # Download Binary
 cd $HOME
-git clone --branch v0.5.0-beta https://github.com/playstructs/structsd.git 
+git clone https://github.com/playstructs/structsd.git
 cd structsd
 ignite chain build
+structsd version --long | grep -e commit -e version
 
 
 # Config and Init App
@@ -47,29 +48,27 @@ structsd init $MONIKER --chain-id $STRUCTS_CHAIN_ID
 
 
 # Add Genesis File and Addrbook
-wget -O $HOME/.structs/config/genesis.json https://files.shazoe.xyz/testnets/structs/genesis.json
-wget -O $HOME/.structs/config/addrbook.json https://files.shazoe.xyz/testnets/structs/addrbook.json
-
+curl -Ls https://snapshots.moonbridge.org/testnet/structs/genesis.json > $HOME/.structs/config/genesis.json
+curl -Ls https://snapshots.moonbridge.org/testnet/structs/addrbook.json > $HOME/.structs/config/addrbook.json
 
 #Configure Seeds and Peers
 SEEDS=""
-PEERS="a32e2f9d8ec4bd56a1caed03a2fa8bbadbe75995@95.217.89.100:14456,3fba9d1c730954bd02edd712de244f2e97e5e13c@88.99.61.53:32656,fd3cc5f0769dea1b520c3d3eea230a2f196c5693@144.76.92.22:10656,f9ff152e331904924c26a4f8b1f46e859d574342@155.138.142.145:26656,197cfbe9f1c7bb8446a9e217d6e3710014bdc496@95.111.248.136:26656,372e686bc84528d9beccf15429f94846cd0f54d8@159.69.193.68:11656,8450315267be7073317c52432a1a8f7a94e039b8@192.155.91.61:26656,9b5164e4ae58f1a5e8f7a8681216dc79cf111aef@188.165.226.46:26696,09e8f5be4c58c0a8ddf5596742a2322431523f2f@216.128.181.240:26656,4d6a8ba29019e2af39910edad5665d8d91d46dde@65.21.32.216:60856"
+PEERS="f9ff152e331904924c26a4f8b1f46e859d574342@155.138.142.145:26656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.structs/config/config.toml
-sed -i 's/minimum-gas-prices =.*/minimum-gas-prices = "0alpha"/g' $HOME/.structs/config/app.toml
+
+# Setting minimum gas price
+sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0ualpha\"|" $HOME/.structs/config/app.toml
+
+# Setting pruning
+sed -i -e 's|^pruning *=.*|pruning = "custom"|' $HOME/.structs/config/app.toml
+sed -i -e 's|^pruning-keep-recent  *=.*|pruning-keep-recent = "100"|' $HOME/.structs/config/app.toml
+sed -i -e 's|^pruning-interval *=.*|pruning-interval = "10"|' $HOME/.structs/config/app.toml
+
+# Disable indexer
+sed -i -e 's|^indexer *=.*|indexer = "null"|' $HOME/.structs/config/config.toml
+
+# Enable Prometheus
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.structs/config/config.toml
-sed -i -e "s/^indexer *=.*/indexer = \"null\"/" $HOME/.structs/config/config.toml
-
-
-# Config Pruning
-pruning="custom"
-pruning_keep_recent="100"
-pruning_keep_every="0"
-pruning_interval="19"
-sed -i -e "s/^pruning *=.*/pruning = \"$pruning\"/" $HOME/.structs/config/app.toml
-sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"$pruning_keep_recent\"/" $HOME/.structs/config/app.toml
-sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"$pruning_keep_every\"/" $HOME/.structs/config/app.toml
-sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"$pruning_interval\"/" $HOME/.structs/config/app.toml
-
 
 # Set Custom Port
 sed -i.bak -e "s%:1317%:${STRUCTS_PORT}317%g;
