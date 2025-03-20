@@ -4,7 +4,7 @@
 # Set Vars
 MONIKER=<YOUR_MONIKER_NAME_GOES_HERE>
 echo "export MONIKER=$MONIKER" >> $HOME/.bash_profile
-echo "export STRUCTS_CHAIN_ID="structstestnet-100"" >> $HOME/.bash_profile
+echo "export STRUCTS_CHAIN_ID="structstestnet-101"" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 ```
 
