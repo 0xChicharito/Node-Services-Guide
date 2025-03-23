@@ -6,7 +6,7 @@ Public Endpoint
 
 ## Snapshot
 
-_Latest snapshot: Tue, 28 Jan 2025 10:11:50 GMT | 7.39 GB_
+height: **10928**, size: **79M**
 
 ```bash
 sudo systemctl stop junctiond
