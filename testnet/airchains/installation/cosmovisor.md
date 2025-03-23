@@ -6,7 +6,7 @@
 
 ```bash
 cd $HOME && \
-ver="1.22.0" && \
+ver="1.22.3" && \
 wget "https://golang.org/dl/go$ver.linux-amd64.tar.gz" && \
 sudo rm -rf /usr/local/go && \sudo tar -C /usr/local -xzf "go$ver.linux-amd64.tar.gz" && \
 rm "go$ver.linux-amd64.tar.gz" && \
@@ -64,15 +64,15 @@ source $HOME/.bash_profile
 cd $HOME
 wget -O junctiond https://github.com/airchains-network/junction/releases/download/v0.2.0/junctiond-linux-amd64
 chmod +x junctiond
-mkdir -p $HOME/.junction/cosmovisor/upgrades/jip-2/bin
-mv junctiond $HOME/.junction/cosmovisor/upgrades/jip-2/bin/
+mkdir -p $HOME/.junctiond/cosmovisor/upgrades/jip-2/bin
+mv junctiond $HOME/.junctiond/cosmovisor/upgrades/jip-2/bin/
 ```
 
 ### **Verify the Setup**
 
 ```bash
 # Check the new binary version
-$HOME/.junction/cosmovisor/upgrades/jip-2/bin/junctiond version
+$HOME/.junctiond/cosmovisor/upgrades/jip-2/bin/junctiond version
 ```
 
 ### **Update service file:**
@@ -93,7 +93,7 @@ Environment="DAEMON_NAME=junctiond"
 Environment="DAEMON_HOME=/root/.junction"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
-Environment="DAEMON_DATA_BACKUP_DIR=/root/.junction/cosmovisor/backup"
+Environment="DAEMON_DATA_BACKUP_DIR=/root/.junctiond/cosmovisor/backup"
 Environment="UNSAFE_SKIP_BACKUP=true"
 
 [Install]

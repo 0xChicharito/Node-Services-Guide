@@ -101,8 +101,6 @@ go run cmd/main.go init --daRpc "disperser-holesky.eigenda.xyz" --daKey "6a822c6
 
 Generate keys for the Junction component using the following command:
 
-Copy
-
 ```
 go run cmd/main.go keys junction --accountName <account-name> --accountPath $HOME/.tracks/junction-accounts/keys
 ```
@@ -184,7 +182,7 @@ accountAddress: air124y5xaxaxjj3mfj5ek7kuv2l3347ylumt9jhr9
 go run cmd/main.go start
 ```
 
-![](https://service.josephtran.xyz/\~gitbook/image?url=https%3A%2F%2F1224718935-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FS2NilcsT04brh7Bnmj8C%252Fuploads%252FQAw6ZgFvzZ1iKwUjuqmd%252FScreen%2520Shot%25202024-06-27%2520at%252021.51.22.png%3Falt%3Dmedia%26token%3D5f7f566d-2a58-4990-a2aa-d91088f841e3\&width=768\&dpr=4\&quality=100\&sign=95b8e00c\&sv=1)
+![](https://service.josephtran.xyz/~gitbook/image?url=https%3A%2F%2F1224718935-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252FS2NilcsT04brh7Bnmj8C%252Fuploads%252FQAw6ZgFvzZ1iKwUjuqmd%252FScreen%2520Shot%25202024-06-27%2520at%252021.51.22.png%3Falt%3Dmedia%26token%3D5f7f566d-2a58-4990-a2aa-d91088f841e3\&width=768\&dpr=4\&quality=100\&sign=95b8e00c\&sv=1)
 
 #### Add Wallet and your network to Meta mask: <a href="#add-wallet-and-your-network-to-meta-mask" id="add-wallet-and-your-network-to-meta-mask"></a>
 

@@ -1,16 +1,18 @@
-# Service
+# Service & Snapshot
 
 Public Endpoint
 
-|     |                                                                        |
-| --- | ---------------------------------------------------------------------- |
-| RPC | [https://airchains-rpc.zkstore.in/](https://airchains-rpc.zkstore.in/) |
-| API | [https://airchains-api.zkstore.in/](https://airchains-api.zkstore.in/) |
+<table><thead><tr><th width="110.66668701171875"></th><th></th></tr></thead><tbody><tr><td>RPC</td><td><a href="https://airchains-rpc.node9x.com">https://airchains-rpc.node9x.com</a></td></tr><tr><td>API</td><td><a href="https://airchains-api.node9x.com">https://airchains-api.node9x.com</a></td></tr></tbody></table>
 
-## Connections
+## Snapshot
 
-**Peer**
+_Latest snapshot: Tue, 28 Jan 2025 10:11:50 GMT | 7.39 GB_
 
-```
-335e9ac0dc613a7b496aff83858174bb4ef16374@37.27.110.190:19656
+```bash
+sudo systemctl stop junctiond
+cp $HOME/.junctiond/data/priv_validator_state.json $HOME/.junctiond/priv_validator_state.json.backup
+rm -rf $HOME/.junctiond/data 
+curl https://snapshot.node9x.com/airchains_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.junctiond
+mv $HOME/.junctiond/priv_validator_state.json.backup $HOME/.junctiond/data/priv_validator_state.json
+sudo systemctl restart junctiond && sudo journalctl -u junctiond 
 ```

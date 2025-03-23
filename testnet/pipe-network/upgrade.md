@@ -2,8 +2,9 @@
 
 ```bash
 cd $HOME
-wget -O pop https://permissionless-labs.us10.list-manage.com/track/clic
+wget -O pop https://dl.pipecdn.app/v0.
 mv $HOME/pop $HOME/download_cache/
 cd download_cache
-./pop
+chmod +x pop
+sudo ./pop
 ```
