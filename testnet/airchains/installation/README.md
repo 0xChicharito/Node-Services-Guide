@@ -98,9 +98,9 @@ WantedBy=multi-user.target
 EOF
 
 # reset and download snapshot
-junctiond tendermint unsafe-reset-all --home $HOME/.junction
-if curl -s --head curl curl -I https://snapshot.node9x.com/airchains_testnet.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl curl -I https://snapshot.node9x.com/airchains_testnet.tar.lz44 | lz4 -dc - | tar -xf - -C $HOME/.junction
+junctiond tendermint unsafe-reset-all --home $HOME/.junctiond
+if curl -s --head curl https://snapshot.node9x.com/airchains_testnet.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl https://snapshot.node9x.com/airchains_testnet.tar.lz44 | lz4 -dc - | tar -xf - -C $HOME/.junctiond
     else
   echo no have snap
 fi
