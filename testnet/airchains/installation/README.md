@@ -2,7 +2,7 @@
 description: 'Recommended Hardware: 4 Cores, 8GB RAM, 200GB of storage (NVME)'
 ---
 
-# Installation
+# ⚙️ Installation
 
 ```bash
 # install dependencies, if needed
