@@ -16,7 +16,7 @@
 ```bash
 curl -s localhost:15657/status | jq -r '.result.node_info | "\(.id)@'"$(curl -4 -s ifconfig.me)"':\(.listen_addr | split(":")[-1])"'
 ```
-height: **8585504**, size: **44G**
+height: **8640687**, size: **45G**
 ### Live Peers <a href="#live-peers" id="live-peers"></a>
 
 ```
