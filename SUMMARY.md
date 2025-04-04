@@ -26,7 +26,7 @@
   * [⛓️ Upgrade (v1.1.1)](testnet/pell/upgrade.md)
   * [🕹️ Command](testnet/pell/command.md)
 * [🟢 Structs](testnet/structs/README.md)
-  * [💾 Service](testnet/structs/service.md)
+  * [💾 Service & Snapshot](testnet/structs/service.md)
   * [⚙️ Installation](testnet/structs/installation.md)
   * [🕹️ Command](testnet/structs/command.md)
 * [🟢 Prysm](testnet/prysm/README.md)
