@@ -16,7 +16,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS
 
 
 **Snapshot**
-
+height: **700395**, size: **180M**
 ```bash
 sudo systemctl stop exrpd
 cp $HOME/.exrpd/data/priv_validator_state.json $HOME/.exrpd/priv_validator_state.json.backup
