@@ -15,6 +15,7 @@
 * [🟢 Native](testnet/native/README.md)
   * [⚙️ Installation](testnet/native/installation.md)
 * [🟢 XRPL EVM](testnet/xrpl-evm/README.md)
+  * [💾 Service & Snapshot](testnet/xrpl-evm/service-and-snapshot.md)
   * [⚙️ Installation](testnet/xrpl-evm/installation.md)
   * [🕹️ Command](testnet/xrpl-evm/command.md)
 * [🟢 Pipe Network](testnet/pipe-network/README.md)

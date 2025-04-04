@@ -2,10 +2,7 @@
 
 **Public Endpoint**
 
-| RPC      | [https://structs-rpc.node9x.com/](https://structs-rpc.node9x.com/) |
-| -------- | ------------------------------------------------------------------ |
-| gRPC     | structs-grpc.node9x.com:443                                        |
-| Chain ID | structstestnet-100                                                 |
+<table data-header-hidden><thead><tr><th width="133.33331298828125"></th><th></th></tr></thead><tbody><tr><td>RPC</td><td><a href="https://structs-rpc.node9x.com/">https://structs-rpc.node9x.com/</a></td></tr><tr><td>gRPC</td><td>structs-grpc.node9x.com:443</td></tr><tr><td>Chain ID</td><td>structstestnet-100</td></tr></tbody></table>
 
 **Live Peers**
 
@@ -15,13 +12,3 @@ echo $PEERS
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.structs/config/
 ```
 
-**Snapshot**
-
-```bash
-sudo systemctl stop exrpd
-cp $HOME/.exrpd/data/priv_validator_state.json $HOME/.exrpd/priv_validator_state.json.backup
-rm -rf $HOME/.exrpd/data
-curl https://snapshot.node9x.com/xrplvm_testnet.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.exrpd
-mv $HOME/.exrpd/priv_validator_state.json.backup $HOME/.exrpd/data/priv_validator_state.json
-sudo systemctl restart exrpd && sudo journalctl -u exrpd -f
-```
