@@ -100,6 +100,7 @@
   * [⛓️ Installation](testnet/chainbase/installation.md)
 * [🟢 Intento](testnet/intento/README.md)
   * [⚙️ Installation](testnet/intento/installation.md)
+  * [💾 Commond](testnet/intento/commond.md)
 * [🔘 AXONE Protocol](testnet/axone-protocol/README.md)
   * [💾 Service & Snapshot](testnet/axone-protocol/service-and-snapshot.md)
   * [⚙️ Installation](testnet/axone-protocol/installation.md)
