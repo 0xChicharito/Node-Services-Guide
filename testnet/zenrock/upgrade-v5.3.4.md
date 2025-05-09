@@ -1,4 +1,4 @@
-# ⛓️ Upgrade (v5.16.20)
+# ⛓️ Upgrade ( v6.3.3)
 
 ### Manual upgrade <a href="#manual" id="manual"></a>
 
@@ -8,7 +8,7 @@ Upgrade height: [230500](https://testnet.itrocket.net/zenrock/block/230500). Ple
 
 ```bash
 cd $HOME
-wget -O zenrockd.zip https://github.com/Zenrock-Foundation/zrchain/releases/download/v5.16.20/zenrockd.zip
+wget -O zenrockd.zip https://github.com/Zenrock-Foundation/zrchain/releases/download/v6.3.3/zenrockd.zip
 unzip zenrockd.zip
 rm zenrockd.zip
 chmod +x $HOME/zenrockd
