@@ -13,7 +13,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.e
 ```
 
 **Snapshot**\
-height: **1287738**, size: **737M**
+height: **1290383**, size: **738M**
 
 ```bash
 sudo systemctl stop exrpd
