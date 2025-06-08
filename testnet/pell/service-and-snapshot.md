@@ -14,7 +14,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.p
 
 ### Snapshot <a href="#snapshot" id="snapshot"></a>
 
-height: **2680990**, size: **1.9G**
+height: **2683364**, size: **1.9G**
 
 ```bash
 sudo systemctl stop pellcored 
