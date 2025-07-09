@@ -12,6 +12,9 @@
 ## 🚀 Testnet
 
 * [🧬 Explorer](<README (1).md>)
+* [Gnolan](testnet/gnolan/README.md)
+  * [Installation](testnet/gnolan/installation.md)
+  * [Command](testnet/gnolan/command.md)
 * [🟢 Native](testnet/native/README.md)
   * [⚙️ Installation](testnet/native/installation.md)
 * [🟢 XRPL EVM](testnet/xrpl-evm/README.md)
