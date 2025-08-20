@@ -8,6 +8,9 @@
   * [⛓️ Upgrade (V11)](mainnet/readme/upgrade-v11.md)
   * [🪢 Cosmovisor](mainnet/kopi-protocol/update-cosmovisor.md)
   * [🛰️ Command](mainnet/kopi-protocol/command.md)
+* [🟢 Bitbadges](mainnet/bitbadges/README.md)
+  * [⚙️ Installation](mainnet/bitbadges/installation.md)
+  * [🕹️ Command](mainnet/bitbadges/command.md)
 
 ## 🚀 Testnet
 
