@@ -63,7 +63,19 @@ Delegate to Yourself
 bitbadgeschaind tx staking delegate $(bitbadgeschaind keys show Chicharito --bech val -a) 65000000000ubadge --from Chicharito --chain-id bitbadges-1 --gas auto --gas-adjustment 1.5 --gas-prices 21ubadge -y
 ```
 
+#### Governance <a href="#governance" id="governance"></a>
 
+Vote
+
+```bash
+bitbadgeschaind tx gov vote 19 yes \
+  --from Chicharito \
+  --chain-id bitbadges-1 \
+  --gas auto \
+  --gas-adjustment 2.0 \
+  --gas-prices 21ubadge \
+  -y
+```
 
 [\
 ](https://docs.provewithryd.xyz/mainnet/bitbadges/snapshot-and-state-sync)
