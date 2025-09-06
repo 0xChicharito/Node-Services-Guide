@@ -2,7 +2,7 @@
 
 **Public Endpoint**
 
-<table data-header-hidden><thead><tr><th width="133.33331298828125"></th><th></th></tr></thead><tbody><tr><td>RPC</td><td>https://sunrise-rpc.node9x.com</td></tr><tr><td>API</td><td>https://sunrise-api.node9x.com</td></tr><tr><td>JSON-RPC</td><td>https://sunrise-evm.node9x.com</td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="133.33331298828125"></th><th></th></tr></thead><tbody><tr><td>RPC</td><td>https://sunrise-rpc.node9x.com</td></tr><tr><td>API</td><td>https://sunrise-api.node9x.com</td></tr></tbody></table>
 
 **Live Peers**
 
