@@ -11,6 +11,10 @@
 * [🟢 Bitbadges](mainnet/bitbadges/README.md)
   * [⚙️ Installation](mainnet/bitbadges/installation.md)
   * [🕹️ Command](mainnet/bitbadges/command.md)
+* [🟢 Sunrise](mainnet/sunrise/README.md)
+  * [💾 Service & Snapshot](mainnet/sunrise/service-and-snapshot.md)
+  * [⚙️ Installation](mainnet/sunrise/installation.md)
+  * [🕹️ Command](mainnet/sunrise/command.md)
 
 ## 🚀 Testnet
 
