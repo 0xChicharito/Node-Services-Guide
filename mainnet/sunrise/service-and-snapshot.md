@@ -12,8 +12,7 @@ echo $PEERS
 sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.sunrise/config/config.toml
 ```
 
-**Snapshot**\
-height: **2986679**, size: **128G**
+**Snapshot**
 
 ```bash
 sudo systemctl stop sunrised
