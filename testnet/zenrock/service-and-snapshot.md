@@ -21,7 +21,7 @@ sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.z
 
 ### Snapshot <a href="#snapshot" id="snapshot"></a>
 
-height: **2505052**, size: **568M**
+height: **2507635**, size: **572M**
 
 ```bash
 sudo systemctl stop zenrockd cp $HOME/.zrchain/data/priv_validator_state.json $HOME/.zrchain/priv_validator_state.json.backup 
