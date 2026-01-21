@@ -1,6 +1,7 @@
 ---
 description: Minimum hardware requirement 2 Cores, 2G Ram, min 40G SSD, Ubuntu 22.04.
 layout:
+  width: default
   title:
     visible: true
   description:
@@ -11,11 +12,13 @@ layout:
     visible: true
   pagination:
     visible: true
+  metadata:
+    visible: true
 ---
 
-# 🟢 Dill Chain
+# 🔘 Dill Chain
 
-Twitter: [https://x.com/dill\_xyz](https://x.com/dill\_xyz)\_
+Twitter: [https://x.com/dill\_xyz](https://x.com/dill_xyz)\_
 
 Discord: [https://discord.com/invite/dill](https://discord.com/invite/dill)
 
@@ -73,7 +76,7 @@ Press any key.
 ubuntu@ip-xxxx:~/dill$
 ```
 
-This will generate the validator keys and save them in  ./validator\_keys directory
+This will generate the validator keys and save them in ./validator\_keys directory
 
 ```
 ls -ltr ./validator_keys

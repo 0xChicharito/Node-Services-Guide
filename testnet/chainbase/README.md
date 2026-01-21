@@ -6,6 +6,7 @@ description: >-
 cover: broken-reference
 coverY: 0
 layout:
+  width: default
   cover:
     visible: true
     size: hero
@@ -19,7 +20,9 @@ layout:
     visible: true
   pagination:
     visible: true
+  metadata:
+    visible: true
 ---
 
-# 🟢 Chainbase
+# 🔘 Chainbase
 

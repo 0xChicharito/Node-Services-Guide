@@ -1,4 +1,4 @@
-# 🟢 Elixir Testnet
+# 🔘 Elixir Testnet
 
 #### Hardware Requirements <a href="#hardware-requirements" id="hardware-requirements"></a>
 
