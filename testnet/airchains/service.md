@@ -6,7 +6,7 @@ Public Endpoint
 
 ## Snapshot
 
-height: **5716471**, size: **874M**
+height: **5719092**, size: **875M**
 
 ```bash
 sudo systemctl stop junctiond
